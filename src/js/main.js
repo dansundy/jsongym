@@ -1,11 +1,19 @@
 'use strict';
 
-angular.module('App', [
-  'ngRoute'
+angular.module('Gym', [
+  'ngRoute',
+
+  'Gym.services',
+  'Gym.controllers'
 ])
 .config(['$routeProvider', function($routeProvider){
-
-}])
-.run(function() {
-
-});
+  $routeProvider.when('/list', {
+    templateUrl: 'partials/list.html',
+    controller: 'listCtrl'
+  });
+  $routeProvider.when('/workout', {
+    templateUrl: 'partials/workout.html',
+    controller: 'workoutCtrl'
+  });
+  $routeProvider.otherwise({redirectTo: '/list'})
+}]);

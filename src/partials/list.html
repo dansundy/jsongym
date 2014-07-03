@@ -1,0 +1,8 @@
+<h1>Workouts</h1>
+<ul>
+  <li ng-repeat="(key, value) in workouts">
+    <a href="#/workout?id={{key}}">
+      {{ value.name }}
+    </a>
+  </li>
+</ul>
