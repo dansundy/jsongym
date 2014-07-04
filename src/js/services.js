@@ -35,4 +35,12 @@ angular.module('Gym.services', [])
 
       return deferred.promise;
     }
+  })
+  .factory('workoutActions', function(){
+    var init = function() {
+      
+    }
+    return {
+      init: init
+    }
   });

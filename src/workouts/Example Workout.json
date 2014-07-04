@@ -4,13 +4,12 @@
   "circuit": [
     {
       "name": "Push Ups",
-      "reps": 10,
-      "rest": 30
+      "reps": 10
     },
     {
       "name": "Plank",
-      "time": 60,
-      "rest": 30
+      "time": 3,
+      "rest": 3
     }
   ]
 }

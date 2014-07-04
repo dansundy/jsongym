@@ -4,6 +4,7 @@ angular.module('Gym', [
   'ngRoute',
 
   'Gym.services',
+  'Gym.directives',
   'Gym.controllers'
 ])
 .config(['$routeProvider', function($routeProvider){
