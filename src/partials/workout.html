@@ -5,5 +5,5 @@
     <span class="reps">{{exercise.reps}}</span> / <span class="timer" workout-timer="{{exercise.setTimer}}"></span>
   </div>
   <div class="next-up">Next Up: {{exercise.nextUp}}</div>
-  <button class="action" ng-click="nextAction.action()">{{nextAction.text}}</button>
+  <a class="action btn is-inactive" ng-click="nextAction.action()">{{nextAction.text}}</a>
 </div>
