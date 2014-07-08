@@ -15,7 +15,7 @@
 
 body {
   background: #fafbdd;
-  color: #655643;
+  color: #80bca3;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   text-align: center;
@@ -28,21 +28,66 @@ ul, li {
 }
 
 a {
-  color: #655643;
+  color: #80bca3;
 }
 
 /*
  * Classes
  */
 .btn {
-  border: 1px solid #655643;
-  border-radius: 15px;
+  border: 1px solid #80bca3;
+  border-radius: 1em;
+  cursor: pointer;
   display: inline-block;
   margin-top: 10px;
   padding: 0.8em 1.5em;
   text-transform: uppercase;
 }
+.btn.action {
+  font-size: 1.5em;
+}
 .btn.is-inactive {
-  border-color: #80bca3;
-  color: #80bca3;
+  border-color: white;
+  color: white;
+}
+
+.toolbar, .workout-wrapper, .info-wrapper, .action-wrapper {
+  position: absolute;
+  width: 100%;
+}
+
+.toolbar {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 1em;
+}
+
+.workout-toolbar-top {
+  top: 0;
+}
+
+.workout-toolbar-bottom {
+  bottom: 0;
+}
+
+.workout-wrapper {
+  bottom: 40px;
+  overflow: auto;
+  top: 40px;
+}
+
+.info-wrapper {
+  bottom: 45%;
+}
+
+.reps-time {
+  font-size: 5em;
+}
+
+.action-wrapper {
+  top: 55%;
+}
+
+.next-up {
+  text-align: left;
 }

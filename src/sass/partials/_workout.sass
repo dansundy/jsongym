@@ -1,0 +1,38 @@
+$toolbars: top, bottom
+$toolbar-height: 40px
+
+$divider: 55%
+
+%sections
+  position: absolute
+  width: 100%
+
+.toolbar
+  @extend %sections
+  height: $toolbar-height
+  line-height: $toolbar-height
+  padding: 0 1em
+
+@each $loc in $toolbars
+  .workout-toolbar-#{$loc}
+    #{$loc}: 0
+
+.workout-wrapper
+  @extend %sections
+  bottom: $toolbar-height
+  overflow: auto
+  top: $toolbar-height
+
+.info-wrapper
+  @extend %sections
+  bottom: 100% - $divider
+
+.reps-time
+  font-size: 5em
+
+.action-wrapper
+  @extend %sections
+  top: $divider
+
+.next-up
+  text-align: left

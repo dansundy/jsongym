@@ -1,9 +1,17 @@
+<div class="toolbar workout-toolbar-top"></div>
 <div class="workout-wrapper">
-  <div class="name">{{exercise.name}}</div>
-  <div class="description">{{exercise.description}}</div>
-  <div class="reps-time">
-    <span class="reps">{{exercise.reps}}</span> / <span class="timer" workout-timer="{{exercise.setTimer}}"></span>
+  <div class="info-wrapper">
+    <div class="name">{{exercise.name}}</div>
+    <div class="description">{{exercise.description}}</div>
+    <div class="reps-time">
+      <span class="reps" ng-show="exercise.reps">{{exercise.reps}} reps</span> <span class="timer" workout-timer="{{exercise.setTimer}}"></span>
+    </div>
   </div>
-  <div class="next-up">Next Up: {{exercise.nextUp}}</div>
-  <a class="action btn is-inactive" ng-click="nextAction.action()">{{nextAction.text}}</a>
+  
+  <div class="action-wrapper">
+    <a class="action btn" ng-click="nextAction.action()">{{nextAction.text}}</a>
+  </div>
+</div>
+<div class="toolbar workout-toolbar-bottom">
+  <div class="next-up" ng-show="exercise.nextUp">Next Up: {{exercise.nextUp}}</div>
 </div>
