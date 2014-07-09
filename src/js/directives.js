@@ -3,27 +3,26 @@
 /* Directives */
 
 angular.module('Gym.directives', [])
-  .directive('workoutTimer', function($interval){
+  .directive('workoutTimer', function($rootScope, $interval, $timeout){
     return {
       restrict: 'A',
       link: function($scope, $element, attrs) {
-        // console.log(attrs);
-        var inter;
-        var currentTime;
 
         attrs.$observe('workoutTimer', function(newVal) {
           if (newVal > 0) {
-            currentTime = newVal;
-            $element[0].innerHTML = currentTime;
+            $scope.exercise.currentTime = newVal;
 
-            inter = $interval(function() {
-              currentTime--;
-              $element[0].innerHTML = currentTime;
-              if (currentTime <= 0) {
-                $element[0].innerHTML = currentTime;
-                $interval.cancel(inter);
-                
-                $scope.nextAction.action();
+            $rootScope.inter = $interval(function() {
+              $scope.exercise.currentTime--;
+              $scope.exercise.currentTime;
+              
+              if ($scope.exercise.currentTime <= 0) {
+                $scope.actionClass = null;
+                $interval.cancel($rootScope.inter);
+
+                if (!$scope.exercise.reps) {
+                  $scope.nextAction.action();
+                }            
               }
             }, 1000);
 

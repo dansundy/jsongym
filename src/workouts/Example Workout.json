@@ -1,10 +1,11 @@
 {
   "name": "Example Workout",
   "reps": 2,
-  "circuit": [
+  "exercises": [
     {
       "name": "Push Ups",
-      "reps": 10
+      "reps": 10,
+      "rest": 3
     },
     {
       "name": "Plank",

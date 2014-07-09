@@ -47,8 +47,8 @@ a {
   font-size: 1.5em;
 }
 .btn.is-inactive {
-  border-color: white;
-  color: white;
+  border-color: #d3e8df;
+  color: #d3e8df;
 }
 
 .toolbar, .workout-wrapper, .info-wrapper, .action-wrapper {

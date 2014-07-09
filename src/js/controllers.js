@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 /* Controllers */
 
@@ -8,7 +8,7 @@ angular.module('Gym.controllers', [])
       $scope.workouts = $rootScope.workouts = workouts;
     });
   })
-  .controller('workoutCtrl', function($scope, $rootScope, $routeParams, runScript){
+  .controller('workoutCtrl', function($scope, $rootScope, $routeParams, $interval, runScript){
     $scope.workoutID = $routeParams.id;
 
     var wk, n;
@@ -25,9 +25,10 @@ angular.module('Gym.controllers', [])
     $scope.Work = {
       load: function() {
         $scope.nextAction = { 
-          text: 'Go',
+          text: 'Start',
           action: function() {
-            $scope.Work.advance();
+            // $scope.Work.advance();
+            $scope.Work.rest(3, 'Starting workout in:');
           }
         };
         $scope.workout = wk = $rootScope.workouts[$scope.workoutID];
@@ -37,29 +38,27 @@ angular.module('Gym.controllers', [])
             curr: 0
           },
           exercise: {
-            total: wk.circuit.length,
+            total: wk.exercises.length,
             curr: 0
           }
         }
       },
-      rest: function(t, name, desc) {
+      rest: function(t, name, action, desc) {
         $scope.nextAction = {
-          text: null,
+          text: action,
           action: $scope.Work.advance
         }
         $scope.exercise = {
           name: name,
           description: desc || null,
           setTimer: t,
-          nextUp: nextEx() ? wk.circuit[nextEx()-1].name : null
+          nextUp: nextEx() ? wk.exercises[nextEx()-1].name : null,
+          currentTime: 0
         }
+        $scope.actionClass = 'is-inactive';
       },
       advance: function() {
         var nxt = nextEx();
-
-        // if (!nxt) {
-        //   $scope.Work.complete();
-        // } else 
 
         if (nxt === 1) {
           n.circuitReps.curr++
@@ -69,22 +68,24 @@ angular.module('Gym.controllers', [])
         $scope.Work.update(n.exercise.curr);
       },
       update: function(exercise) {
-        var ex = wk.circuit[exercise-1];
+        var ex = wk.exercises[exercise-1];
+        $scope.actionClass = ex.time > 0 ? 'is-inactive' : null;
 
         $scope.exercise = {
           name: ex.name,
           description: ex.description || null,
           setTimer: ex.time || null,
           reps: ex.reps || null,
-          nextUp: !ex.rest && nextEx() ? wk.circuit[nextEx()-1].name : null
+          nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].name : null
         }
         $scope.nextAction = {
-          text: !ex.reps ? null : 'Done',
+          text: 'Done',
           action: function() {
+            $interval.cancel($rootScope.inter);
             if (!nextEx()) {
               $scope.Work.complete();
             } else if (ex.rest) {
-              $scope.Work.rest(ex.rest, 'Resting');
+              $scope.Work.rest(ex.rest, 'Resting', 'Skip');
             } else {
               $scope.Work.advance();
             }
@@ -92,7 +93,15 @@ angular.module('Gym.controllers', [])
         }
       },
       complete: function() {
-        console.log('Workout Complete');
+        $scope.exercise.name = 'Workout Complete!';
+        $scope.exercise.description = 'Drink some water and rest up. See you soon!';
+        $scope.nextUp = null;
+        $scope.nextAction = {
+          text: 'Home',
+          action: function() {
+            window.location.hash = '/list';
+          }
+        }
       }
     }
     
