@@ -1,8 +1,14 @@
 <h1>Workouts</h1>
-<ul>
-  <li ng-repeat="(key, value) in workouts">
-    <a href="#/workout?id={{key}}">
-      {{ value.name }}
+<ul class="workout-list">
+  <li ng-repeat="workout in workouts">
+    <a class="workout-list-name" href="#/workout?id={{$index}}">
+      {{ workout.name }}
     </a>
+
+    <a class="desc-toggle" ng-if="workout.description">i</a>
+    
+    <ul ng-if="workout.description">
+      <li>{{ workout.description }}</li>
+    </ul>
   </li>
 </ul>

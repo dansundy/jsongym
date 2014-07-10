@@ -3,21 +3,46 @@ $toolbar-height: 40px
 
 $divider: 55%
 
+.workout-wrapper
+  height: 100%
+  position: absolute
+  transition-property: background-color, color
+  width: 100%
+
+  &.warm,
+  &.hot
+    transition-duration: 1s, 900ms
+    transition-delay: 0, 100ms
+
+  &.warm
+    background: $warm
+  &.hot
+    background: $hot
+    color: $background
+
 %sections
   position: absolute
   width: 100%
 
 .toolbar
   @extend %sections
+  font-size: 1.3em
   height: $toolbar-height
   line-height: $toolbar-height
   padding: 0 1em
+
+  .right
+    margin-left: 10px
+
+  a
+    line-height: inherit
+    text-decoration: none
 
 @each $loc in $toolbars
   .workout-toolbar-#{$loc}
     #{$loc}: 0
 
-.workout-wrapper
+.workout-main-panel
   @extend %sections
   bottom: $toolbar-height
   overflow: auto
@@ -27,8 +52,22 @@ $divider: 55%
   @extend %sections
   bottom: 100% - $divider
 
-.reps-time
-  font-size: 5em
+  .name
+    font-size: 2em
+
+  .description
+    text-transform: initial
+    font-size: 1.4em
+
+  .reps-time
+    font-size: 5em
+    line-height: 100px
+    min-height: 100px
+
+  .reps:after,
+    content: 'reps'
+    font-size: 0.4em
+    margin-left: 0.5em
 
 .action-wrapper
   @extend %sections

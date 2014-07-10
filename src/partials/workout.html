@@ -1,19 +1,24 @@
-<div class="toolbar workout-toolbar-top"></div>
-<div class="workout-wrapper">
-  <div class="info-wrapper">
-    <div class="name">{{exercise.name}}</div>
-    <div class="description">{{exercise.description}}</div>
-    <div class="reps-time">
-      <span class="reps" ng-show="exercise.reps">{{exercise.reps}} reps</span>
-      <span ng-show="exercise.reps && exercise.currentTime"> / </span>
-      <span class="timer" workout-timer="{{exercise.setTimer}}" ng-show="exercise.currentTime > 0">{{exercise.currentTime}}</span>
+<div class="workout-wrapper" ng-class="states.viewClass">
+  <div class="toolbar workout-toolbar-top">
+    <a class="right fa fa-times" ng-click="events.close()"></a>
+    <a class="right fa" ng-class="states.paused ? 'fa-play' : 'fa-pause'" ng-click="states.paused = !states.paused"></a>
+  </div>
+  <div class="workout-main-panel">
+    <div class="info-wrapper">
+      <div class="name">{{exercise.name}}</div>
+      <div class="description">{{exercise.description}}</div>
+      <div class="reps-time">
+        <span class="reps" ng-show="exercise.reps">{{exercise.reps}}</span>
+        <span ng-show="exercise.reps && exercise.currentTime !== null"> / </span>
+        <span class="timer" workout-timer="{{exercise.setTimer}}" ng-show="exercise.currentTime !== null">{{exercise.currentTime}}</span>
+      </div>
+    </div>
+    
+    <div class="action-wrapper">
+      <a class="action btn" ng-class="actionClass" ng-click="nextAction.action()" ng-show="nextAction.text">{{nextAction.text}}</a>
     </div>
   </div>
-  
-  <div class="action-wrapper">
-    <a class="action btn" ng-class="actionClass" ng-click="nextAction.action()" ng-show="nextAction.text">{{nextAction.text}}</a>
+  <div class="toolbar workout-toolbar-bottom">
+    <div class="next-up" ng-show="exercise.nextUp"><strong>Next Up:</strong> {{exercise.nextUp}}</div>
   </div>
-</div>
-<div class="toolbar workout-toolbar-bottom">
-  <div class="next-up" ng-show="exercise.nextUp">Next Up: {{exercise.nextUp}}</div>
 </div>

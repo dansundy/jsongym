@@ -3,7 +3,7 @@
 /* Services */
 
 angular.module('Gym.services', [])
-  // .value('allWorkouts', {})
+  // .value('allWorkouts', null)
   // .factory('HelloWorld', function($q, $timeout) {
   
   //   var getMessages = function() {

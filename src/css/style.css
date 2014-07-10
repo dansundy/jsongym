@@ -15,10 +15,35 @@
 
 body {
   background: #fafbdd;
-  color: #80bca3;
-  font-family: "Roboto", sans-serif;
+  color: #655643;
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-weight: 100;
   text-transform: uppercase;
   text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+h4 {
+  font-weight: 300;
+}
+
+h5 {
+  font-weight: 300;
+}
+
+h6 {
+  font-weight: 300;
 }
 
 ul, li {
@@ -28,38 +53,119 @@ ul, li {
 }
 
 a {
-  color: #80bca3;
+  color: inherit;
+  cursor: pointer;
+}
+
+strong {
+  font-weight: 400;
 }
 
 /*
  * Classes
  */
 .btn {
-  border: 1px solid #80bca3;
-  border-radius: 1em;
+  border: 1px solid #655643;
+  background: #d7eae2;
+  border-radius: 50%;
   cursor: pointer;
   display: inline-block;
+  height: 100px;
+  line-height: 100px;
   margin-top: 10px;
-  padding: 0.8em 1.5em;
+  opacity: 1;
   text-transform: uppercase;
+  width: 100px;
+}
+.hot .btn {
+  background-color: #fafbdd;
+  color: #655643;
 }
 .btn.action {
   font-size: 1.5em;
 }
 .btn.is-inactive {
-  border-color: #d3e8df;
-  color: #d3e8df;
+  opacity: 0.5;
 }
 
-.toolbar, .workout-wrapper, .info-wrapper, .action-wrapper {
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.workout-list {
+  border-bottom: 1px solid #c8bcac;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+.workout-list > li:hover {
+  background: #f8f9cf;
+}
+.workout-list li {
+  border-top: 1px solid #c8bcac;
+  text-align: left;
+  width: 100%;
+}
+.workout-list li a {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none;
+}
+.workout-list li a.workout-list-name {
+  width: 90%;
+}
+.workout-list li li {
+  display: none;
+  padding: 1em;
+  text-align: left;
+  text-transform: initial;
+}
+.workout-list li.is-showing-description li {
+  display: block;
+}
+
+.workout-wrapper {
+  height: 100%;
+  position: absolute;
+  -webkit-transition-property: background-color, color;
+  transition-property: background-color, color;
+  width: 100%;
+}
+.workout-wrapper.warm, .workout-wrapper.hot {
+  -webkit-transition-duration: 1s, 900ms;
+  transition-duration: 1s, 900ms;
+  -webkit-transition-delay: 0, 100ms;
+  transition-delay: 0, 100ms;
+}
+.workout-wrapper.warm {
+  background: #e6ac27;
+}
+.workout-wrapper.hot {
+  background: #bf4d28;
+  color: #fafbdd;
+}
+
+.toolbar, .workout-main-panel, .info-wrapper, .action-wrapper {
   position: absolute;
   width: 100%;
 }
 
 .toolbar {
+  font-size: 1.3em;
   height: 40px;
   line-height: 40px;
   padding: 0 1em;
+}
+.toolbar .right {
+  margin-left: 10px;
+}
+.toolbar a {
+  line-height: inherit;
+  text-decoration: none;
 }
 
 .workout-toolbar-top {
@@ -70,7 +176,7 @@ a {
   bottom: 0;
 }
 
-.workout-wrapper {
+.workout-main-panel {
   bottom: 40px;
   overflow: auto;
   top: 40px;
@@ -79,9 +185,22 @@ a {
 .info-wrapper {
   bottom: 45%;
 }
-
-.reps-time {
+.info-wrapper .name {
+  font-size: 2em;
+}
+.info-wrapper .description {
+  text-transform: initial;
+  font-size: 1.4em;
+}
+.info-wrapper .reps-time {
   font-size: 5em;
+  line-height: 100px;
+  min-height: 100px;
+}
+.info-wrapper .reps:after {
+  content: "reps";
+  font-size: 0.4em;
+  margin-left: 0.5em;
 }
 
 .action-wrapper {

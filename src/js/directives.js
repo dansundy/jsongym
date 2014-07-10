@@ -15,6 +15,14 @@ angular.module('Gym.directives', [])
             $rootScope.inter = $interval(function() {
               $scope.exercise.currentTime--;
               $scope.exercise.currentTime;
+
+              if ($scope.exercise.currentTime <= 3) {
+                $scope.states.viewClass = 'hot';
+              } else if ($scope.exercise.currentTime <= 6) {
+                $scope.states.viewClass = 'warm';
+              } else {
+                $scope.states.viewClass = null;
+              }
               
               if ($scope.exercise.currentTime <= 0) {
                 $scope.actionClass = null;
@@ -32,3 +40,20 @@ angular.module('Gym.directives', [])
       }
     }
   })
+  .directive('descToggle', function() {
+    return {
+      restrict: 'C',
+      link: function($scope, $elem, attrs) {
+        var el = angular.element($elem[0]);
+        var parent = el.parent('li');
+
+        el.on('click', function() {
+          if (parent.hasClass('is-showing-description')) {
+            parent.removeClass('is-showing-description');
+          } else {
+            parent.addClass('is-showing-description');
+          }
+        });
+      }
+    }
+  });

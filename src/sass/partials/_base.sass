@@ -9,8 +9,13 @@ body
   background: $light
   color: $foreground
   font-family: $font-base
+  font-weight: 100
   text-transform: uppercase
   text-align: center
+
+@for $i from 1 through 6
+  h#{$i}
+    font-weight: 300
 
 ul, li
   margin: 0
@@ -18,23 +23,46 @@ ul, li
   list-style-type: none
 
 a
-  color: $foreground
+  color: inherit
+  cursor: pointer
+
+strong
+  font-weight: 400
 
 /**
  * Classes
  */
+$button-size: 100px
+
 .btn
   border: 1px solid $foreground
-  border-radius: 1em
+  background: lighten($accent, 26%)
+  border-radius: 50%
+  // color: $background
   cursor: pointer
   display: inline-block
+  height: $button-size
+  line-height: $button-size
   margin-top: 10px
-  padding: 0.8em 1.5em
+  opacity: 1
+  // padding: 0.8em 1.5em
   text-transform: uppercase
+  width: $button-size
+
+  .hot &
+    background-color: $background
+    color: $foreground
 
   &.action
     font-size: 1.5em
 
   &.is-inactive
-    border-color: $foreground-inactive
-    color: $foreground-inactive
+    opacity: 0.5
+    // border-color: $foreground-inactive
+    // color: $foreground-inactive
+
+$floats: left, right
+
+@each $float in $floats
+  .#{$float}
+    float: $float

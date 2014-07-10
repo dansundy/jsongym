@@ -1,0 +1,22 @@
+{
+  "name": "A third Workout",
+  "description": "This is the third workout I have made. The description is so that you know which workout you are selecting.",
+  "reps": 2,
+  "exercises": [
+    {
+      "name": "Push Ups",
+      "reps": 10,
+      "time": 10,
+      "rest": 10
+    },
+    {
+      "name": "Plank",
+      "time": 10,
+      "rest": 10
+    },
+    {
+      "name": "Sit Ups",
+      "reps": 50
+    }
+  ]
+}
