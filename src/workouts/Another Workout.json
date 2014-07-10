@@ -1,0 +1,16 @@
+{
+  "name": "Example Workout",
+  "reps": 2,
+  "exercises": [
+    {
+      "name": "Push Ups",
+      "reps": 10,
+      "rest": 3
+    },
+    {
+      "name": "Plank",
+      "time": 3,
+      "rest": 3
+    }
+  ]
+}
