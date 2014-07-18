@@ -9,6 +9,7 @@ var gulp          = require('gulp'),
     minifyCss     = require('gulp-minify-css'),
     minifyHtml    = require('gulp-minify-html'),
     rename        = require('gulp-rename'),
+    replace       = require('gulp-replace'),
     rev           = require('gulp-rev'),
     sass          = require('gulp-ruby-sass'),
     svgmin        = require('gulp-svgmin'),
@@ -36,7 +37,10 @@ var path = {
  * Tasks
  */
 gulp.task('clean', function(){
-  gulp.src(path.deploy.base + '/*', {read: false})
+  gulp.src([
+      path.deploy.base + '/*',
+      '!' + path.deploy.base + '/manifest.appcache'
+  ], {read: false})
     .pipe(clean());
 });
 
@@ -46,7 +50,9 @@ gulp.task('move', ['styles'], function(){
       path.src.scripts + '/lib/html5.js',
       path.src.base + '/**/*.{php,txt,json}',
       path.src.base + '/.htaccess',
+      path.src.base + '/manifest.appcache'
     ], {base: path.src.base})
+    .pipe(replace('--timestamp--', Date.now()))
     .pipe(gulp.dest(path.deploy.base))
 });
 
@@ -63,7 +69,7 @@ gulp.task('usemin', ['styles'], function() {
     .pipe(usemin({
       css: [minifyCss(), 'concat'],
       html: [minifyHtml({empty:true, comments:true, conditionals:true, quotes:true})],
-      js: [uglify({mangle:false}), rev()]
+      js: [uglify({mangle:false}, rev())]
     }))
     .pipe(gulp.dest(path.deploy.base))
 });
