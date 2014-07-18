@@ -18,7 +18,7 @@ angular.module('Gym', [
   });
   $routeProvider.otherwise({redirectTo: '/list'})
 }])
-.run(function(){
+.run(function($route){
   var appCache = window.applicationCache;
   if (appCache.status > 0) {
     // Check if a new cache is available on page load.
@@ -26,7 +26,7 @@ angular.module('Gym', [
       if (appCache.status == window.applicationCache.UPDATEREADY) {
         // Browser downloaded a new app cache.
         if (confirm('A new version of this site is available. Load it?')) {
-          window.location.reload();
+          $route.reload();
         }
       } 
     }, false);
