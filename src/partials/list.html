@@ -1,7 +1,7 @@
 <h1>Workouts</h1>
 <ul class="workout-list">
   <li ng-repeat="workout in workouts">
-    <a class="workout-list-name" href="#/workout?id={{$index}}">
+    <a class="workout-list-name" href="#/workout?id={{workout.id}}">
       {{ workout.name }}
     </a>
 
@@ -11,4 +11,5 @@
       <li>{{ workout.description }}</li>
     </ul>
   </li>
+  <li class="error" ng-show="err"><p class="fa fa-warning"> {{err}}</p></li>
 </ul>

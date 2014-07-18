@@ -3,12 +3,15 @@
 /* Controllers */
 
 angular.module('Gym.controllers', [])
-  .controller('listCtrl', function($scope, $rootScope, $filter, runScript){
+  .controller('listCtrl', function($scope, $rootScope, $filter, runScript, storage){
     runScript('get-workouts.php').then(function(workouts) {
       $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,'-timestamp');
+      storage.set('workouts', $scope.workouts);
+    }, function(message){
+      $scope.err = message;
     });
   })
-  .controller('workoutCtrl', function($scope, $rootScope, $routeParams, $interval, $filter, runScript){
+  .controller('workoutCtrl', function($scope, $rootScope, $location, $routeParams, $interval, $filter, storage, utils){
     $scope.workoutID = $routeParams.id;
     $scope.states = {};
 
@@ -33,7 +36,7 @@ angular.module('Gym.controllers', [])
           }
         };
 
-        $scope.workout = wk = $rootScope.workouts[$scope.workoutID];
+        $scope.workout = wk = utils.find($scope.workoutID, $rootScope.workouts);
         $scope.exercise = {
           name: wk.name,
           currentTime: null
@@ -143,13 +146,20 @@ angular.module('Gym.controllers', [])
     });
     
     if (!$rootScope.workouts) {
-      runScript('get-workouts.php').then(function(workouts) {
-        $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,'-timestamp');
+
+      var wks = storage.get('workouts');
+
+      if (wks) {
+        $scope.workouts = $rootScope.workouts = $filter('orderBy')(wks,'-timestamp');
         $scope.Work.load();
-      });
+        return;
+      }
+
+      console.log('That workout isn\'t there');
+      $location.url($location.path('/list'));
+
     } else {
       $scope.Work.load();
     }
-
     
   });

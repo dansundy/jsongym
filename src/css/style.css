@@ -96,6 +96,11 @@ strong {
   float: right;
 }
 
+.error {
+  overflow: hidden;
+  text-transform: initial;
+}
+
 .workout-list {
   border-bottom: 1px solid #c8bcac;
   max-width: 500px;
@@ -126,6 +131,9 @@ strong {
 }
 .workout-list li.is-showing-description li {
   display: block;
+}
+.workout-list li.error {
+  text-align: center;
 }
 
 .workout-wrapper {
