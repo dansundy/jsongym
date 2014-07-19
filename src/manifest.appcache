@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# --timestamp--
+
+index.html
+get-workouts.php
+
+css/style.css
+
+js/optimized.js
+
+partials/list.html
+partials/workout.html
