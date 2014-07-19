@@ -114,6 +114,18 @@ strong {
   text-transform: initial;
 }
 
+.branding {
+  overflow: hidden;
+}
+.branding span {
+  position: absolute;
+  left: 100%;
+}
+.branding .icon {
+  height: 150px;
+  width: 150px;
+}
+
 .workout-list {
   border-bottom: 1px solid #c8bcac;
   max-width: 500px;
