@@ -2,6 +2,9 @@
  * Colours
  */
 /*
+ * Sizes
+ */
+/*
  * Extends
  */
 /*
@@ -96,6 +99,16 @@ strong {
   float: right;
 }
 
+.icon {
+  display: inline-block;
+  height: 32px;
+  vertical-align: middle;
+  width: 32px;
+}
+.icon use {
+  fill: #655643;
+}
+
 .error {
   overflow: hidden;
   text-transform: initial;
@@ -115,6 +128,10 @@ strong {
   text-align: left;
   width: 100%;
 }
+.workout-list li .icon {
+  height: 20px;
+  width: 20px;
+}
 .workout-list li a {
   display: inline-block;
   padding: 1em;
@@ -122,6 +139,10 @@ strong {
 }
 .workout-list li a.workout-list-name {
   width: 90%;
+}
+.workout-list li a.icn-wrap {
+  padding: 0;
+  vertical-align: middle;
 }
 .workout-list li li {
   display: none;
@@ -134,6 +155,12 @@ strong {
 }
 .workout-list li.error {
   text-align: center;
+}
+.workout-list li.error .icon {
+  height: 16px;
+  position: relative;
+  top: -2px;
+  width: 16px;
 }
 
 .workout-wrapper {
@@ -156,6 +183,9 @@ strong {
   background: #bf4d28;
   color: #fafbdd;
 }
+.workout-wrapper.hot use {
+  fill: #fafbdd;
+}
 
 .toolbar, .workout-main-panel, .info-wrapper, .action-wrapper {
   position: absolute;
@@ -174,6 +204,14 @@ strong {
 .toolbar a {
   line-height: inherit;
   text-decoration: none;
+}
+.toolbar .icon {
+  height: 24px;
+  width: 24px;
+}
+.toolbar .icon.icon-play-pause {
+  height: 26px;
+  width: 26px;
 }
 
 .workout-toolbar-top {

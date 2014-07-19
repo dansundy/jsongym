@@ -1,7 +1,16 @@
 <div class="workout-wrapper" ng-class="states.viewClass">
   <div class="toolbar workout-toolbar-top">
-    <a class="right fa fa-times" ng-click="events.close()"></a>
-    <a class="right fa" ng-class="states.paused ? 'fa-play' : 'fa-pause'" ng-click="states.paused = !states.paused"></a>
+    <a class="right" ng-click="events.close()">
+      <svg class="icon icon-exit">
+        <use xlink:href="#exit" />
+      </svg>
+    </a>
+    <a class="right" ng-click="states.paused = !states.paused">
+      <svg class="icon icon-play-pause">
+        <use ng-if="states.paused" xlink:href="#play" />
+        <use ng-if="!states.paused" xlink:href="#pause" />
+      </svg>
+    </a>
   </div>
   <div class="workout-main-panel">
     <div class="info-wrapper">

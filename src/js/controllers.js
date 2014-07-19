@@ -81,6 +81,9 @@ angular.module('Gym.controllers', [])
       },
       update: function(exercise) {
         var ex = wk.exercises[exercise-1];
+        if ($rootScope.inter) {
+          $interval.cancel($rootScope.inter);
+        }
         $scope.actionClass = ex.time > 0 ? 'is-inactive' : null;
 
         $scope.exercise = {
@@ -91,6 +94,7 @@ angular.module('Gym.controllers', [])
           reps: ex.reps || null,
           nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].name : null
         }
+        
         $scope.nextAction = {
           text: 'Done',
           action: function() {

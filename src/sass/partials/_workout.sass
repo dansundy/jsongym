@@ -19,6 +19,9 @@ $divider: 55%
   &.hot
     background: $hot
     color: $background
+    
+    use
+      fill: $background
 
 %sections
   position: absolute
@@ -37,6 +40,14 @@ $divider: 55%
   a
     line-height: inherit
     text-decoration: none
+
+  .icon
+    height: $icon-size + 4px
+    width: $icon-size + 4px
+
+    &.icon-play-pause
+      height: $icon-size + 6px
+      width: $icon-size + 6px
 
 @each $loc in $toolbars
   .workout-toolbar-#{$loc}

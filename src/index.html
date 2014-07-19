@@ -7,8 +7,6 @@
   <meta name="description" content="A project starting point with different branches for different configurations.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  
   <!-- build:css css/style.css -->
     <link rel="stylesheet" href="../bower_components/standardize/standardize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -19,8 +17,9 @@
   <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
 </head>
 <body>
-  
+  <div ng-include="'partials/svg-icons.html'"></div>
   <div class="view-wrapper" ng-view></div>
+  
   <!-- build:js js/optimized.js -->
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>

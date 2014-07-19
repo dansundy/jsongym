@@ -5,11 +5,21 @@
       {{ workout.name }}
     </a>
 
-    <a class="desc-toggle fa fa-info-circle" ng-if="workout.description"></a>
+    <a class="desc-toggle icn-wrap" ng-if="workout.description">
+      <svg class="icon">
+        <use xlink:href="#info" />
+      </svg>
+    </a>
     
     <ul ng-if="workout.description">
       <li>{{ workout.description }}</li>
     </ul>
   </li>
-  <li class="error" ng-show="err"><p class="fa fa-warning"> {{err}}</p></li>
+  <li class="error" ng-show="err">
+    <p>
+      <svg class="icon">
+        <use xlink:href="#warning" />
+      </svg> {{err}}
+    </p>
+  </li>
 </ul>

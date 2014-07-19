@@ -12,9 +12,11 @@ angular.module('Gym.directives', [])
           if (newVal > 0) {
             $scope.exercise.currentTime = newVal;
 
+            if ($rootScope.inter) {
+              $interval.cancel($rootScope.inter);
+            }
             $rootScope.inter = $interval(function() {
               $scope.exercise.currentTime--;
-              $scope.exercise.currentTime;
 
               if ($scope.exercise.currentTime <= 3) {
                 $scope.states.viewClass = 'hot';
@@ -25,6 +27,9 @@ angular.module('Gym.directives', [])
               }
               
               if ($scope.exercise.currentTime <= 0) {
+                if ($scope.exercise.currentTime < 0) {
+                  $scope.exercise.currentTime = 0;
+                }
                 $scope.actionClass = null;
                 $interval.cancel($rootScope.inter);
 
