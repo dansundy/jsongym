@@ -1,0 +1,24 @@
+{
+  "name": "JSONgym",
+  "version": "0.0.0",
+  "authors": [
+    "dansundy <dansundy@gmail.com>"
+  ],
+  "description": "A workout webapp for developers.",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "http://JSONgym.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.20",
+    "angular-route": "~1.2.20",
+    "standardize": "~1.1.0"
+  }
+}
