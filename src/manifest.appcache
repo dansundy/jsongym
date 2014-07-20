@@ -3,19 +3,13 @@ CACHE MANIFEST
 
 index.html
 get-workouts.php
-
 css/style.--version--.css
-
 js/optimized.--version--.js
-
 partials/list.html
 partials/workout.html
 partials/svg-icons.html
-
 apple-touch-icon-152x152.png
 apple-touch-icon-precomposed.png
 apple-touch-icon.png
-
 favicon.png
-
 mstile-144x144.png

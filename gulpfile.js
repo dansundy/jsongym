@@ -50,7 +50,7 @@ gulp.task('move', ['styles'], function(){
       path.src.styles + '/oldie.css',
       path.src.scripts + '/lib/html5.js',
       path.src.base + '/**/*.{php,txt,json}',
-      path.src.base + '/.htaccess',
+      // path.src.base + '/.htaccess',
       path.src.base + '/manifest.appcache',
       '!' + path.src.base + '/components/**/*.*'
     ], {base: path.src.base})

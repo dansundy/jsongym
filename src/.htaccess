@@ -111,7 +111,8 @@ AddType application/x-font-woff        woff
 # Assorted types
 AddType image/x-icon                        ico
 AddType image/webp                          webp
-AddType text/cache-manifest                 appcache manifest
+# AddType text/cache-manifest                 appcache manifest
+AddType text/cache-manifest                 .appcache
 AddType text/x-component                    htc
 AddType application/xml                     rss atom xml rdf
 AddType application/x-chrome-extension      crx
