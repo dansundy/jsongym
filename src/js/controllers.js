@@ -8,6 +8,7 @@ angular.module('Gym.controllers', [])
       $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,'-timestamp');
       storage.set('workouts', $scope.workouts);
     }, function(message){
+      console.log(message);
       $scope.err = message;
     });
   })

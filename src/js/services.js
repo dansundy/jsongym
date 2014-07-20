@@ -98,7 +98,8 @@ angular.module('Gym.services', [])
           // deferred.resolve(data);
         })
         .error(function(data, status, headers, config) {
-          deferred.resolve(status);
+          console.log(data);
+          deferred.reject(data);
         });
 
       return deferred.promise;
