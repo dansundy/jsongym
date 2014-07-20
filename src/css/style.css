@@ -7,6 +7,21 @@
 /*
  * Extends
  */
+.view-wrapper {
+  height: 100%;
+}
+
+.wrapper {
+  display: table;
+  min-height: 100%;
+  width: 100%;
+}
+.wrapper .wrapper-inner {
+  display: table-cell;
+  padding: 4em 0;
+  vertical-align: middle;
+}
+
 /*
  * HTML
  */
@@ -16,6 +31,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   background: #fafbdd;
   color: #655643;
@@ -23,6 +43,11 @@ body {
   font-weight: 100;
   text-transform: uppercase;
   text-align: center;
+}
+@media (max-width: 500px) {
+  body {
+    font-size: 0.8em;
+  }
 }
 
 h1 {
@@ -75,7 +100,6 @@ strong {
   display: inline-block;
   height: 100px;
   line-height: 100px;
-  margin-top: 10px;
   opacity: 1;
   text-transform: uppercase;
   width: 100px;
@@ -115,11 +139,7 @@ strong {
 }
 
 .branding {
-  overflow: hidden;
-}
-.branding span {
-  position: absolute;
-  left: 100%;
+  margin: 0 0 1em;
 }
 .branding .icon {
   height: 150px;
@@ -137,6 +157,8 @@ strong {
 }
 .workout-list li {
   border-top: 1px solid #c8bcac;
+  font-weight: 200;
+  position: relative;
   text-align: left;
   width: 100%;
 }
@@ -150,11 +172,12 @@ strong {
   text-decoration: none;
 }
 .workout-list li a.workout-list-name {
-  width: 90%;
+  width: 100%;
 }
-.workout-list li a.icn-wrap {
-  padding: 0;
-  vertical-align: middle;
+.workout-list li a.desc-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .workout-list li li {
   display: none;
@@ -199,7 +222,7 @@ strong {
   fill: #fafbdd;
 }
 
-.toolbar, .workout-main-panel, .info-wrapper, .action-wrapper {
+.toolbar {
   position: absolute;
   width: 100%;
 }
@@ -207,6 +230,7 @@ strong {
 .toolbar {
   font-size: 1.3em;
   height: 40px;
+  left: 0;
   line-height: 40px;
   padding: 0 1em;
 }
@@ -238,31 +262,27 @@ strong {
   bottom: 40px;
   overflow: auto;
   top: 40px;
+  width: 100%;
 }
-
-.info-wrapper {
-  bottom: 45%;
-}
-.info-wrapper .name {
+.workout-main-panel .name {
   font-size: 2em;
 }
-.info-wrapper .description {
+.workout-main-panel .description {
   text-transform: initial;
   font-size: 1.4em;
 }
-.info-wrapper .reps-time {
+.workout-main-panel .reps-time {
   font-size: 5em;
   line-height: 100px;
-  min-height: 100px;
+  height: 100px;
 }
-.info-wrapper .reps:after {
+.workout-main-panel .reps:after {
   content: "reps";
   font-size: 0.4em;
   margin-left: 0.5em;
 }
-
-.action-wrapper {
-  top: 55%;
+.workout-main-panel .action-wrapper {
+  min-height: 100px;
 }
 
 .next-up {

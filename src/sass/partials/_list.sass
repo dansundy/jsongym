@@ -1,11 +1,8 @@
 $border-color: lighten($dark, 40%)
 
 .branding
-  overflow: hidden
+  margin: 0 0 1em
 
-  span
-    position: absolute
-    left: 100%
   .icon
     height: 150px
     width: 150px
@@ -21,6 +18,8 @@ $border-color: lighten($dark, 40%)
 
   li
     border-top: 1px solid $border-color
+    font-weight: 200
+    position: relative
     text-align: left
     width: 100%
 
@@ -34,11 +33,16 @@ $border-color: lighten($dark, 40%)
       text-decoration: none
 
       &.workout-list-name
-        width: 90%
+        width: 100%
 
-      &.icn-wrap
-        padding: 0
-        vertical-align: middle
+      &.desc-toggle
+        position: absolute
+        right: 0
+        top: 0
+
+      // &.icn-wrap
+      //   padding: 0
+      //   vertical-align: middle
 
     li
       display: none

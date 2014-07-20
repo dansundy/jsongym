@@ -31,6 +31,7 @@ $divider: 55%
   @extend %sections
   font-size: 1.3em
   height: $toolbar-height
+  left: 0
   line-height: $toolbar-height
   padding: 0 1em
 
@@ -54,14 +55,11 @@ $divider: 55%
     #{$loc}: 0
 
 .workout-main-panel
-  @extend %sections
+  // @extend %sections
   bottom: $toolbar-height
   overflow: auto
   top: $toolbar-height
-
-.info-wrapper
-  @extend %sections
-  bottom: 100% - $divider
+  width: 100%
 
   .name
     font-size: 2em
@@ -73,16 +71,15 @@ $divider: 55%
   .reps-time
     font-size: 5em
     line-height: 100px
-    min-height: 100px
+    height: 100px
 
   .reps:after,
     content: 'reps'
     font-size: 0.4em
     margin-left: 0.5em
 
-.action-wrapper
-  @extend %sections
-  top: $divider
+  .action-wrapper
+    min-height: 100px
 
 .next-up
   text-align: left

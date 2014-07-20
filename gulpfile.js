@@ -26,10 +26,10 @@ var path = {
     assets: './src/assets'
   },
   deploy: {
-    base: './deploy',
-    styles: './deploy/css',
-    scripts: './deploy/js',
-    assets: './deploy/assets'
+    base: './JSONgym',
+    styles: './JSONgym/css',
+    scripts: './JSONgym/js',
+    assets: './JSONgym/assets'
   }
 }
 
@@ -50,7 +50,8 @@ gulp.task('move', ['styles'], function(){
       path.src.scripts + '/lib/html5.js',
       path.src.base + '/**/*.{php,txt,json}',
       path.src.base + '/.htaccess',
-      path.src.base + '/manifest.appcache'
+      path.src.base + '/manifest.appcache',
+      '!' + path.src.base + '/components/**/*.*'
     ], {base: path.src.base})
     .pipe(replace('--timestamp--', Date.now()))
     .pipe(gulp.dest(path.deploy.base))
@@ -75,12 +76,12 @@ gulp.task('usemin', ['styles'], function() {
 });
 
 gulp.task('assets', function() {
-  return gulp.src([path.src.assets + '/**/*.{jpg,png,svg}'])
+  return gulp.src([path.src.base + '/**/*.{jpg,png,svg}'])
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}]
     }))
-    .pipe(gulp.dest(path.deploy.assets))
+    .pipe(gulp.dest(path.deploy.base))
 });
 
 gulp.task('build', ['clean', 'usemin', 'move', 'assets']);

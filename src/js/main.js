@@ -25,9 +25,9 @@ angular.module('Gym', [
     appCache.addEventListener('updateready', function(e) {
       if (appCache.status == window.applicationCache.UPDATEREADY) {
         // Browser downloaded a new app cache.
-        if (confirm('A new version of this site is available. Load it?')) {
+        // if (confirm('A new version of this site is available. Load it?')) {
           $route.reload();
-        }
+        // }
       } 
     }, false);
   }

@@ -4,4 +4,5 @@ _source/
 
 node_modules/
 deploy/
+JSONgym/
 src/components/
