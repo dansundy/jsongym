@@ -33,6 +33,7 @@ var path = {
   }
 }
 
+
 /**
  * Tasks
  */
@@ -54,6 +55,7 @@ gulp.task('move', ['styles'], function(){
       '!' + path.src.base + '/components/**/*.*'
     ], {base: path.src.base})
     .pipe(replace('--timestamp--', Date.now()))
+    .pipe(replace('--version--', data.version))
     .pipe(gulp.dest(path.deploy.base))
 });
 
@@ -68,9 +70,9 @@ gulp.task('styles', function() {
 gulp.task('usemin', ['styles'], function() {
   return gulp.src(path.src.base + '/**/*.html')
     .pipe(usemin({
-      css: [minifyCss(), 'concat'],
+      css: [minifyCss(), 'concat', rename({suffix: '.' + data.version})],
       html: [minifyHtml({empty:true, comments:true, conditionals:true, quotes:true})],
-      js: [uglify({mangle:false}, rev())]
+      js: [uglify({mangle:false}), rename({suffix: '.' + data.version})]
     }))
     .pipe(gulp.dest(path.deploy.base))
 });

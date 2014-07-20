@@ -4,9 +4,9 @@ CACHE MANIFEST
 index.html
 get-workouts.php
 
-css/style.css
+css/style.--version--.css
 
-js/optimized.js
+js/optimized.--version--.js
 
 partials/list.html
 partials/workout.html
