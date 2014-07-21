@@ -1,4 +1,4 @@
-# JSONGym
+# JSON Gym
 
 A workout webapp for developers.
 

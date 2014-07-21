@@ -3,6 +3,7 @@ _source/
 .sass-cache/
 
 node_modules/
-deploy/
-JSONgym/
+
 src/components/
+
+jsongym/.gitignore
