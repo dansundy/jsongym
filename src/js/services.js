@@ -98,8 +98,21 @@ angular.module('Gym.services', [])
           // deferred.resolve(data);
         })
         .error(function(data, status, headers, config) {
-          console.log(data);
-          deferred.reject(data);
+
+          var messages = {
+            0: {
+              code: status, 
+              message: 'Cannot connect to the workouts directory. You may be Offline.'
+            },
+            dflt: {
+              code: null,
+              message: 'No message'
+            }
+          };
+
+          var msg = messages[status] || messages['dflt'];
+
+          deferred.reject(msg);
         });
 
       return deferred.promise;

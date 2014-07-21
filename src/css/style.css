@@ -146,10 +146,18 @@ strong {
   width: 150px;
 }
 
+.list-message {
+  font-weight: 200;
+  text-transform: initial;
+  margin: 1em auto;
+  max-width: 500px;
+  width: 90%;
+}
+
 .workout-list {
   border-bottom: 1px solid #c8bcac;
   max-width: 500px;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 }
 .workout-list > li:hover {

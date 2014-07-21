@@ -4,12 +4,25 @@
 
 angular.module('Gym.controllers', [])
   .controller('listCtrl', function($scope, $rootScope, $filter, runScript, storage){
+    $scope.states = {
+      listMessage: 'This site is in a very early alpha. Eventually you will be able to add your own workouts but for now you’re welcome to use mine.'
+    };
     runScript('get-workouts.php').then(function(workouts) {
-      $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,'-timestamp');
+      $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,['order', '-timestamp', 'name']);
       storage.set('workouts', $scope.workouts);
-    }, function(message){
-      console.log(message);
-      $scope.err = message;
+    }, function(err){
+      var wks = storage.get('workouts');
+
+      console.log(err);
+      if (wks) {
+        $scope.workouts = $rootScope.workouts = $filter('orderBy')(wks,['order', '-timestamp', 'name']);
+      }
+
+      if (typeof err === 'string') {
+        $scope.err = err;
+      } else {
+        $scope.err = err.message;
+      }
     });
   })
   .controller('workoutCtrl', function($scope, $rootScope, $location, $routeParams, $interval, $filter, storage, utils){
@@ -155,7 +168,7 @@ angular.module('Gym.controllers', [])
       var wks = storage.get('workouts');
 
       if (wks) {
-        $scope.workouts = $rootScope.workouts = $filter('orderBy')(wks,'-timestamp');
+        $scope.workouts = $rootScope.workouts = $filter('orderBy')(wks,['order', '-timestamp', 'name']);
         $scope.Work.load();
         return;
       }
