@@ -4,32 +4,32 @@
   "cycles": 4,
   "exercises": [
     {
-      "exercise": "Bodyweight Squats",
+      "title": "Bodyweight Squats",
       "reps": 8,
       "rest": 30
     },
     {
-      "exercise": "Push Ups",
+      "title": "Push Ups",
       "reps": 8,
       "rest": 30
     },
     {
-      "exercise": "Plank",
+      "title": "Plank",
       "time": 15,
       "rest": 30
     },
     {
-      "exercise": "Jumping Jacks",
+      "title": "Jumping Jacks",
       "reps": 15,
       "rest": 30
     },
     {
-      "exercise": "Bodyweight Reverse Lunges",
+      "title": "Bodyweight Reverse Lunges",
       "reps": 6,
       "rest": 30
     },
     {
-      "exercise": "Lying Hip Raise",
+      "title": "Lying Hip Raise",
       "reps": 10,
       "rest": 90
     }

@@ -78,7 +78,7 @@ angular.module('Gym.controllers', [])
           name: name,
           description: desc || null,
           setTimer: t,
-          nextUp: nextEx() ? wk.exercises[nextEx()-1].exercise : null,
+          nextUp: nextEx() ? wk.exercises[nextEx()-1].title : null,
           currentTime: null
         }
         
@@ -102,12 +102,12 @@ angular.module('Gym.controllers', [])
         $scope.actionClass = ex.time > 0 ? 'is-inactive' : null;
 
         $scope.exercise = {
-          name: ex.exercise,
+          name: ex.title,
           description: ex.description || null,
           currentTime: null,
           setTimer: ex.time || null,
           reps: ex.reps || null,
-          nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].exercise : null
+          nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].title : null
         }
         
         $scope.nextAction = {
