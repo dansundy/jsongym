@@ -1,3 +1,6 @@
+$toolbars: top, bottom
+$toolbar-height: 40px
+
 .view-wrapper
   height: 100%
 
@@ -8,5 +11,34 @@
 
   .wrapper-inner
     display: table-cell
-    padding: 4em 0
+    padding: $toolbar-height 0
     vertical-align: middle
+
+
+.toolbar
+  // @extend %sections
+  font-size: 1.3em
+  height: $toolbar-height
+  left: 0
+  line-height: $toolbar-height
+  padding: 0 1em
+  position: fixed
+  width: 100%
+
+  .right
+    margin-left: 10px
+
+  .left
+    margin-right: 10px
+
+  a
+    line-height: inherit
+    text-decoration: none
+
+  .icon
+    height: $icon-size + 4px
+    width: $icon-size + 4px
+
+    &.icon-play-pause
+      height: $icon-size + 6px
+      width: $icon-size + 6px

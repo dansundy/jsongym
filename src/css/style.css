@@ -18,8 +18,36 @@
 }
 .wrapper .wrapper-inner {
   display: table-cell;
-  padding: 4em 0;
+  padding: 40px 0;
   vertical-align: middle;
+}
+
+.toolbar {
+  font-size: 1.3em;
+  height: 40px;
+  left: 0;
+  line-height: 40px;
+  padding: 0 1em;
+  position: fixed;
+  width: 100%;
+}
+.toolbar .right {
+  margin-left: 10px;
+}
+.toolbar .left {
+  margin-right: 10px;
+}
+.toolbar a {
+  line-height: inherit;
+  text-decoration: none;
+}
+.toolbar .icon {
+  height: 24px;
+  width: 24px;
+}
+.toolbar .icon.icon-play-pause {
+  height: 26px;
+  width: 26px;
 }
 
 /*
@@ -40,7 +68,7 @@ body {
   background: #fafbdd;
   color: #655643;
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   text-transform: uppercase;
   text-align: center;
 }
@@ -86,7 +114,7 @@ a {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /*
@@ -230,34 +258,6 @@ strong {
   fill: #fafbdd;
 }
 
-.toolbar {
-  position: absolute;
-  width: 100%;
-}
-
-.toolbar {
-  font-size: 1.3em;
-  height: 40px;
-  left: 0;
-  line-height: 40px;
-  padding: 0 1em;
-}
-.toolbar .right {
-  margin-left: 10px;
-}
-.toolbar a {
-  line-height: inherit;
-  text-decoration: none;
-}
-.toolbar .icon {
-  height: 24px;
-  width: 24px;
-}
-.toolbar .icon.icon-play-pause {
-  height: 26px;
-  width: 26px;
-}
-
 .workout-toolbar-top {
   top: 0;
 }
@@ -295,4 +295,7 @@ strong {
 
 .next-up {
   text-align: left;
+}
+.next-up .next-up-exercise {
+  margin-left: 0.2em;
 }

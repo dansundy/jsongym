@@ -1,17 +1,5 @@
 <div class="workout-wrapper wrapper" ng-class="states.viewClass">
-  <div class="toolbar workout-toolbar-top">
-    <a class="right" ng-click="events.close()">
-      <svg class="icon icon-exit">
-        <use xlink:href="#exit" />
-      </svg>
-    </a>
-    <a class="right" ng-click="states.paused = !states.paused">
-      <svg class="icon icon-play-pause">
-        <use ng-if="states.paused" xlink:href="#play" />
-        <use ng-if="!states.paused" xlink:href="#pause" />
-      </svg>
-    </a>
-  </div>
+  
   <div class="workout-main-panel wrapper-inner">
     <!-- <div class="info-wrapper"> -->
       <div class="name">{{exercise.name}}</div>
@@ -28,7 +16,22 @@
     </div>
   </div>
 
-  <div class="toolbar workout-toolbar-bottom">
-    <div class="next-up" ng-show="exercise.nextUp"><strong>Next Up:</strong> {{exercise.nextUp}}</div>
+  <div class="toolbar workout-toolbar-top">
+    <a class="left" ng-click="states.paused = !states.paused">
+      <svg class="icon icon-play-pause">
+        <use ng-if="states.paused" xlink:href="#play" />
+        <use ng-if="!states.paused" xlink:href="#pause" />
+      </svg>
+    </a>
+    <a class="right" ng-click="events.close()">
+      <svg class="icon icon-exit">
+        <use xlink:href="#exit" />
+      </svg>
+    </a>
   </div>
+
+  <div class="toolbar workout-toolbar-bottom">
+    <div class="next-up" ng-show="exercise.nextUp"><strong>Next Up:</strong><span class="next-up-exercise">{{exercise.nextUp}}</span></div>
+  </div>
+
 </div>
