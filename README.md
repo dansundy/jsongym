@@ -1,5 +1,8 @@
 # JSON Gym
 
-A workout webapp for developers.
+Create simple workouts by writing `JSON` files.
 
-Workouts can be written and customized with `.json` files.
+## Get Started
+
+1. Download or clone this repository. 
+2. Host the `jsongym` folder wherever you want to run the application.
