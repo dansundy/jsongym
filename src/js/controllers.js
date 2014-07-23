@@ -51,13 +51,14 @@ angular.module('Gym.controllers', [])
         };
 
         $scope.workout = wk = utils.find($scope.workoutID, $rootScope.workouts);
+
         $scope.exercise = {
           name: wk.name,
           currentTime: null
         }
         n = {
           circuitReps: {
-            total: wk.reps,
+            total: wk.cycles,
             curr: 0
           },
           exercise: {
@@ -77,7 +78,7 @@ angular.module('Gym.controllers', [])
           name: name,
           description: desc || null,
           setTimer: t,
-          nextUp: nextEx() ? wk.exercises[nextEx()-1].name : null,
+          nextUp: nextEx() ? wk.exercises[nextEx()-1].exercise : null,
           currentTime: null
         }
         
@@ -101,12 +102,12 @@ angular.module('Gym.controllers', [])
         $scope.actionClass = ex.time > 0 ? 'is-inactive' : null;
 
         $scope.exercise = {
-          name: ex.name,
+          name: ex.exercise,
           description: ex.description || null,
           currentTime: null,
           setTimer: ex.time || null,
           reps: ex.reps || null,
-          nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].name : null
+          nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].exercise : null
         }
         
         $scope.nextAction = {

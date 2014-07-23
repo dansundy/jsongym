@@ -1,35 +1,35 @@
 {
   "name": "1% Workout (Beginner)",
   "description": "This bodyweight workout can be done 3-4 times per week. It is intended to help burn fat and build strength. If any of the exercises feel too hard, make modifications and build up to them.",
-  "reps": 4,
+  "cycles": 4,
   "exercises": [
     {
-      "name": "Bodyweight Squats",
+      "exercise": "Bodyweight Squats",
       "reps": 8,
       "rest": 30
     },
     {
-      "name": "Push Ups",
+      "exercise": "Push Ups",
       "reps": 8,
       "rest": 30
     },
     {
-      "name": "Plank",
+      "exercise": "Plank",
       "time": 15,
       "rest": 30
     },
     {
-      "name": "Jumping Jacks",
+      "exercise": "Jumping Jacks",
       "reps": 15,
       "rest": 30
     },
     {
-      "name": "Bodyweight Reverse Lunges",
+      "exercise": "Bodyweight Reverse Lunges",
       "reps": 6,
       "rest": 30
     },
     {
-      "name": "Lying Hip Raise",
+      "exercise": "Lying Hip Raise",
       "reps": 10,
       "rest": 90
     }
