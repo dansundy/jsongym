@@ -79,7 +79,8 @@ angular.module('Gym.controllers', [])
           description: desc || null,
           setTimer: t,
           nextUp: nextEx() ? wk.exercises[nextEx()-1].title : null,
-          currentTime: null
+          currentTime: null,
+          resting: true
         }
         
       },
@@ -95,24 +96,34 @@ angular.module('Gym.controllers', [])
         $scope.Work.update(n.exercise.curr);
       },
       update: function(exercise) {
+        var autoStart = wk.autoStart || false;
         var ex = wk.exercises[exercise-1];
-        if ($rootScope.inter) {
-          $interval.cancel($rootScope.inter);
-        }
-        $scope.actionClass = ex.time > 0 ? 'is-inactive' : null;
+        var preventAutoStart = (ex.time && !autoStart) ? true : false;
+
+        if ($rootScope.inter) { $interval.cancel($rootScope.inter); }
+
+        $scope.actionClass = ex.time > 0 && !preventAutoStart ? 'is-inactive' : null;
 
         $scope.exercise = {
           name: ex.title,
           description: ex.description || null,
-          currentTime: null,
-          setTimer: ex.time || null,
+          currentTime: ex.time || null,
+          setTimer: !preventAutoStart ? ex.time : null,
           reps: ex.reps || null,
           nextUp: !ex.rest && nextEx() ? wk.exercises[nextEx()-1].title : null
         }
         
         $scope.nextAction = {
-          text: 'Done',
+          text: preventAutoStart ? 'Start' : 'Done',
           action: function() {
+            if (preventAutoStart) {
+              $scope.exercise.setTimer = ex.time;
+              $scope.actionClass = 'is-inactive';
+              $scope.nextAction.text = 'Done';
+              preventAutoStart = false;
+              return;
+            }
+              
             $interval.cancel($rootScope.inter);
             if (!nextEx()) {
               $scope.Work.complete();

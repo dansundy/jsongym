@@ -46,6 +46,18 @@ Forces the order of appearance in the list of workouts. If the order is not expl
 
 The number of times to go through the list of excercises.
 
+### autoStart
+* **Type:** Boolean
+* **Default:** false
+
+Set whether or not timed exercises should start automatically.
+
+### autoNext
+* **Type:**
+* **Default:**
+
+Set whether or not timed exercises should move on to rest time or the next exercise automatically.
+
 ### exercises
 * **Type:** Array
 
@@ -70,12 +82,3 @@ Sets a timer for the given exercise. Countdown starts automatically. If no reps 
 * **Type:** Integer
 
 The number of seconds of rest after the respective exercise. Rest time will not appear at the end of the last cycle.
-
-
-
-
-
-
-
-
-

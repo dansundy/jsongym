@@ -52,8 +52,6 @@ angular.module('Gym.services', [])
         // Check if data is an object or string.
         var value = (typeof data === 'string') ? data : JSON.stringify(data);
 
-        // console.log('[Storage] set %s -> %O', key, data)
-
         // Store it.
         localStorage.setItem(key,value); // value: data
       },
@@ -66,8 +64,6 @@ angular.module('Gym.services', [])
 
         // Get the value from storage.
         var value = localStorage.getItem(key);
-
-        // console.log('[Storage] get %s -> %O', key, value)
 
         return Test.json(value) ? JSON.parse(value) : value;
       },

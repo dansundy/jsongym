@@ -33,7 +33,7 @@ angular.module('Gym.directives', [])
                 $scope.actionClass = null;
                 $interval.cancel($rootScope.inter);
 
-                if (!$scope.exercise.reps) {
+                if ($scope.exercise.resting || $scope.workout.autoNext || $scope.workout.autoNext === undefined) {
                   $scope.nextAction.action();
                 }            
               }
