@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# 1406084167678
+# 1406255665605
 
 index.html
 get-workouts.php
-css/style.1.1.0.css
-js/optimized.1.1.0.js
+css/style.1.2.0.css
+js/optimized.1.2.0.js
 partials/list.html
 partials/workout.html
 partials/svg-icons.html
