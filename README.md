@@ -26,7 +26,7 @@ A very simple workout would look something like this:
 
 ## API
 
-### name (Required)
+### name (required)
 * **Type:** String
 
 The name of the workout as you would like it to appear in the application.
@@ -43,6 +43,7 @@ Forces the order of appearance in the list of workouts. If the order is not expl
 
 ### cycles
 * **Type:** Integer
+* **Default:** 1
 
 The number of times to go through the list of excercises.
 
@@ -53,17 +54,17 @@ The number of times to go through the list of excercises.
 Set whether or not timed exercises should start automatically.
 
 ### autoNext
-* **Type:**
-* **Default:**
+* **Type:** Boolean
+* **Default:** true
 
 Set whether or not timed exercises should move on to rest time or the next exercise automatically.
 
-### exercises
+### exercises (required)
 * **Type:** Array
 
 An array of objects that contains the information for each exercise in the workout.
 
-### exercises -> exercise
+### exercises -> title (required)
 * **Type:** String
 
 The name of the exercise as you would like to have it appear during the workout.

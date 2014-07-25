@@ -58,7 +58,7 @@ angular.module('Gym.controllers', [])
         }
         n = {
           circuitReps: {
-            total: wk.cycles,
+            total: wk.cycles || 1,
             curr: 0
           },
           exercise: {
