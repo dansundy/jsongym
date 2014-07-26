@@ -2,7 +2,7 @@
 
 $workouts = array();
 
-$workout_dir = './workouts';
+$workout_dir = '../workouts';
 
 // var_dump(count(glob($workout_dir . '/*')));
 

@@ -5,7 +5,8 @@ angular.module('Gym', [
 
   'Gym.services',
   'Gym.directives',
-  'Gym.controllers'
+  'Gym.controllers',
+  'Gym.data'
 ])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider.when('/list', {

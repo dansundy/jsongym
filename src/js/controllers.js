@@ -3,11 +3,11 @@
 /* Controllers */
 
 angular.module('Gym.controllers', [])
-  .controller('listCtrl', function($scope, $rootScope, $filter, runScript, storage){
+  .controller('listCtrl', function($scope, $rootScope, $filter, runScript, storage, gymVars){
     $scope.states = {
       listMessage: 'This site is in a very early alpha. Eventually you will be able to add your own workouts but for now you’re welcome to use mine.'
     };
-    runScript('get-workouts.php').then(function(workouts) {
+    runScript('php-scripts/get-workouts.php').then(function(workouts) {
       $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,['order', '-timestamp', 'name']);
       storage.set('workouts', $scope.workouts);
     }, function(err){
