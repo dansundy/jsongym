@@ -7,6 +7,7 @@ angular.module('Gym.controllers', [])
     $scope.states = {
       listMessage: 'This site is in a very early alpha. Eventually you will be able to add your own workouts but for now you’re welcome to use mine.'
     };
+
     runScript('php-scripts/get-workouts.php').then(function(workouts) {
       $scope.workouts = $rootScope.workouts = $filter('orderBy')(workouts,['order', '-timestamp', 'name']);
       storage.set('workouts', $scope.workouts);
@@ -24,6 +25,22 @@ angular.module('Gym.controllers', [])
         $scope.err = err.message;
       }
     });
+  })
+  .controller('getFileCtrl', function($scope, $http){
+    $scope.submit = function() {
+      $http({
+        method: 'POST',
+        url: 'php-scripts/get-json-workout.php',
+        data: {jsonURL: this.jsonfile},
+      })
+        .success(function(data, status, headers, config){
+          console.log(data);             
+        })
+        .error(function(data, status, headers, config){
+          console.log(data);
+          console.log(status);
+        });
+    }
   })
   .controller('workoutCtrl', function($scope, $rootScope, $location, $routeParams, $interval, $filter, storage, utils){
     $scope.workoutID = $routeParams.id;
