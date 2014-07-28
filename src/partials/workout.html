@@ -1,34 +1,35 @@
-<div class="workout-wrapper wrapper" ng-class="states.viewClass">
+<div class="workout-wrapper" ng-class="states.viewClass" ng-controller="workoutCtrl">
+
+  <div class="name">{{exercise.name}}</div>
+  <div class="description">{{exercise.description}}</div>
+  <div class="reps-time">
+    <span class="reps" ng-show="exercise.reps">{{exercise.reps}}</span>
+    <span ng-show="exercise.reps && exercise.time"> / </span>
+    <workout-timer 
+      time="{{exercise.time}}",
+      viewdata="viewData",
+      complete="timerComplete()",
+      events="workoutEvents"
+    ></workout-timer>
+  </div>
   
-  <div class="workout-main-panel wrapper-inner">
-    <!-- <div class="info-wrapper"> -->
-      <div class="name">{{exercise.name}}</div>
-      <div class="description">{{exercise.description}}</div>
-      <div class="reps-time">
-        <span class="reps" ng-show="exercise.reps">{{exercise.reps}}</span>
-        <span ng-show="exercise.reps && exercise.currentTime !== null"> / </span>
-        <span class="timer" workout-timer="{{exercise.setTimer}}" ng-show="exercise.currentTime !== null">{{exercise.currentTime}}</span>
-      </div>
-    <!-- </div> -->
-    
-    <div class="action-wrapper">
-      <a class="action btn" ng-class="actionClass" ng-click="nextAction.action()" ng-show="nextAction.text">{{nextAction.text}}</a>
-    </div>
+  <div class="action-wrapper">
+    <a class="action btn" ng-class="actionClass" ng-click="nextAction.action()" ng-show="nextAction.text">{{nextAction.text}}</a>
   </div>
 
   <div class="toolbar workout-toolbar-top">
-    <a class="left" ng-click="states.paused = !states.paused">
+    <a class="left" ng-click="workoutEvents.pauseToggle()">
       <svg class="icon icon-play-pause">
-        <use ng-if="states.paused" xlink:href="#play" />
-        <use ng-if="!states.paused" xlink:href="#pause" />
+        <use ng-if="viewData.workoutPaused" xlink:href="#play" />
+        <use ng-if="!viewData.workoutPaused" xlink:href="#pause" />
       </svg>
     </a>
-    <a class="right" ng-click="events.close()">
+    <a class="right" ng-click="leaveWorkout('/list')">
       <svg class="icon icon-exit">
         <use xlink:href="#exit" />
       </svg>
     </a>
-  </div>
+  </div>  
 
   <div class="toolbar workout-toolbar-bottom">
     <div class="next-up" ng-show="exercise.nextUp"><strong>Next Up:</strong> {{exercise.nextUp}}</div>

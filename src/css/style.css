@@ -7,19 +7,40 @@
 /*
  * Extends
  */
-.view-wrapper {
-  height: 100%;
-}
-
 .wrapper {
   display: table;
   min-height: 100%;
   width: 100%;
 }
-.wrapper .wrapper-inner {
+
+.view-wrapper {
   display: table-cell;
   padding: 40px 0;
   vertical-align: middle;
+  -webkit-transition-property: background-color, color;
+  transition-property: background-color, color;
+}
+.view-wrapper.warm, .view-wrapper.hot {
+  -webkit-transition-duration: 1s, 900ms;
+  transition-duration: 1s, 900ms;
+  -webkit-transition-delay: 0, 100ms;
+  transition-delay: 0, 100ms;
+}
+.view-wrapper.warm {
+  background: #e6ac27;
+}
+.view-wrapper.hot {
+  background: #bf4d28;
+  color: #fafbdd;
+}
+.view-wrapper.hot use {
+  fill: #fafbdd;
+}
+
+.center-container {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 90%;
 }
 
 .toolbar {
@@ -177,16 +198,10 @@ strong {
 .list-message {
   font-weight: 200;
   text-transform: initial;
-  margin: 1em auto;
-  max-width: 500px;
-  width: 90%;
 }
 
 .workout-list {
   border-bottom: 1px solid #c8bcac;
-  max-width: 500px;
-  width: 90%;
-  margin: 0 auto;
 }
 .workout-list > li:hover {
   background: #f8f9cf;
@@ -234,28 +249,25 @@ strong {
   width: 16px;
 }
 
-.workout-wrapper {
-  height: 100%;
-  position: absolute;
-  -webkit-transition-property: background-color, color;
-  transition-property: background-color, color;
-  width: 100%;
+.workout-wrapper .name {
+  font-size: 2em;
 }
-.workout-wrapper.warm, .workout-wrapper.hot {
-  -webkit-transition-duration: 1s, 900ms;
-  transition-duration: 1s, 900ms;
-  -webkit-transition-delay: 0, 100ms;
-  transition-delay: 0, 100ms;
+.workout-wrapper .description {
+  text-transform: initial;
+  font-size: 1.4em;
 }
-.workout-wrapper.warm {
-  background: #e6ac27;
+.workout-wrapper .reps-time {
+  font-size: 5em;
+  line-height: 100px;
+  height: 100px;
 }
-.workout-wrapper.hot {
-  background: #bf4d28;
-  color: #fafbdd;
+.workout-wrapper .reps:after {
+  content: "reps";
+  font-size: 0.4em;
+  margin-left: 0.5em;
 }
-.workout-wrapper.hot use {
-  fill: #fafbdd;
+.workout-wrapper .action-wrapper {
+  min-height: 100px;
 }
 
 .workout-toolbar-top {
@@ -264,33 +276,6 @@ strong {
 
 .workout-toolbar-bottom {
   bottom: 0;
-}
-
-.workout-main-panel {
-  bottom: 40px;
-  overflow: auto;
-  top: 40px;
-  width: 100%;
-}
-.workout-main-panel .name {
-  font-size: 2em;
-}
-.workout-main-panel .description {
-  text-transform: initial;
-  font-size: 1.4em;
-}
-.workout-main-panel .reps-time {
-  font-size: 5em;
-  line-height: 100px;
-  height: 100px;
-}
-.workout-main-panel .reps:after {
-  content: "reps";
-  font-size: 0.4em;
-  margin-left: 0.5em;
-}
-.workout-main-panel .action-wrapper {
-  min-height: 100px;
 }
 
 .next-up {

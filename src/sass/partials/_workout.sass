@@ -1,40 +1,6 @@
 $divider: 55%
 
 .workout-wrapper
-  height: 100%
-  position: absolute
-  transition-property: background-color, color
-  width: 100%
-
-  &.warm,
-  &.hot
-    transition-duration: 1s, 900ms
-    transition-delay: 0, 100ms
-
-  &.warm
-    background: $warm
-  &.hot
-    background: $hot
-    color: $background
-    
-    use
-      fill: $background
-
-// %sections
-//   position: absolute
-//   width: 100%
-
-@each $loc in $toolbars
-  .workout-toolbar-#{$loc}
-    #{$loc}: 0
-
-.workout-main-panel
-  // @extend %sections
-  bottom: $toolbar-height
-  overflow: auto
-  top: $toolbar-height
-  width: 100%
-
   .name
     font-size: 2em
 
@@ -54,6 +20,10 @@ $divider: 55%
 
   .action-wrapper
     min-height: 100px
+
+@each $loc in $toolbars
+  .workout-toolbar-#{$loc}
+    #{$loc}: 0
 
 .next-up
   text-align: left

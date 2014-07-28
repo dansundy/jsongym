@@ -1,19 +1,36 @@
 $toolbars: top, bottom
 $toolbar-height: 40px
 
-.view-wrapper
-  height: 100%
-
 .wrapper
   display: table
   min-height: 100%
   width: 100%
 
-  .wrapper-inner
-    display: table-cell
-    padding: $toolbar-height 0
-    vertical-align: middle
+.view-wrapper
+  display: table-cell
+  padding: $toolbar-height 0
+  vertical-align: middle
 
+  transition-property: background-color, color
+
+  &.warm,
+  &.hot
+    transition-duration: 1s, 900ms
+    transition-delay: 0, 100ms
+
+  &.warm
+    background: $warm
+  &.hot
+    background: $hot
+    color: $background
+    
+    use
+      fill: $background
+
+.center-container
+  margin: 0 auto
+  max-width: 500px
+  width: 90%
 
 .toolbar
   // @extend %sections

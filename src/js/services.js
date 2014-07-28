@@ -90,8 +90,6 @@ angular.module('Gym.services', [])
         .success(function(data, status, headers, config) {
           var err = typeof data == 'string' ? 'reject' : 'resolve';
           deferred[err](data);
-          // deferred.reject(data);
-          // deferred.resolve(data);
         })
         .error(function(data, status, headers, config) {
 

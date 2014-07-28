@@ -9,16 +9,29 @@ angular.module('Gym', [
   'Gym.data'
 ])
 .config(['$routeProvider', function($routeProvider){
-  $routeProvider.when('/list', {
-    templateUrl: 'partials/list.html',
-    controller: 'listCtrl'
-  });
-  $routeProvider.when('/workout', {
-    templateUrl: 'partials/workout.html',
-    controller: 'workoutCtrl'
+  $routeProvider.when('/:view', {
+    templateUrl: function(params) {
+      return 'partials/' + params.view + '.html';
+    },
+    controller: 'viewCtrl'
   });
   $routeProvider.otherwise({redirectTo: '/list'})
-}])
+}]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // .run(function($route){
   // var appCache = window.applicationCache;
   // if (appCache.status > 0) {

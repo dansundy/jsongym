@@ -26,7 +26,9 @@
 </head>
 <body>
   <div ng-include="'partials/svg-icons.html'"></div>
-  <div class="view-wrapper" ng-view></div>
+  <div class="wrapper">
+    <div class="view-wrapper" ng-view ng-class="viewData.temperature"></div>
+  </div>
   
   <!-- build:js js/optimized.js -->
     <script src="components/angular/angular.js"></script>
@@ -37,6 +39,10 @@
     <script src="js/directives.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/data.js"></script>
+
+    <script src="js/controllers/view-ctrl.js"></script>
+    <script src="js/controllers/list-ctrl.js"></script>
+    <script src="js/controllers/workout-ctrl.js"></script>
   <!-- endbuild -->
 </body>
 </html>

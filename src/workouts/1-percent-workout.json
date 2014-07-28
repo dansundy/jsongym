@@ -2,6 +2,8 @@
   "name": "1% Workout (Beginner)",
   "description": "This bodyweight workout can be done 3-4 times per week. It is intended to help burn fat and build strength. If any of the exercises feel too hard, make modifications and build up to them.",
   "cycles": 4,
+  "autoStart": true,
+  "autoNext": false,
   "exercises": [
     {
       "title": "Bodyweight Squats",
