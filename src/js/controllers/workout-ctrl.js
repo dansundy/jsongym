@@ -25,7 +25,7 @@ angular.module('Gym.controllers')
           }
         };
 
-        $scope.workout = wk = utils.find($scope.workoutID, $rootScope.workouts);
+        wk = utils.find($scope.workoutID, $scope.viewData.workouts);
 
         $scope.exercise = {
           name: wk.name
@@ -161,12 +161,12 @@ angular.module('Gym.controllers')
       }
     }
     
-    if (!$rootScope.workouts) {
+    if (!$scope.viewData.workouts) {
 
       var wks = storage.get('workouts');
 
       if (wks) {
-        $scope.workouts = $rootScope.workouts = $filter('orderBy')(wks,['order', '-timestamp', 'name']);
+        $scope.viewData.workouts = $filter('orderBy')(wks,['order', '-timestamp', 'name']);
         $scope.Work.load();
         return;
       }

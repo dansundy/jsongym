@@ -84,9 +84,13 @@ angular.module('Gym.services', [])
   })
   .factory('runScript', function($q, $http) {
 
-    return function(script) {
+    return function(script, data) {
       var deferred = $q.defer();
-      $http.post(script)
+      $http({
+          url: script,
+          method: 'POST',
+          data: data || {}
+        })
         .success(function(data, status, headers, config) {
           var err = typeof data == 'string' ? 'reject' : 'resolve';
           deferred[err](data);

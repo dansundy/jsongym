@@ -11,7 +11,7 @@
     <input type="submit" id="submit" value="Submit" />
   </form>
   <ul class="workout-list" ng-controller="listCtrl">
-    <li ng-repeat="workout in workouts">
+    <li ng-repeat="workout in viewData.workouts">
       <a class="workout-list-name" href="#/workout?id={{workout.id}}">
         {{ workout.name }}
       </a>
