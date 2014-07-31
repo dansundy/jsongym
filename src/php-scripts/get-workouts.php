@@ -5,10 +5,11 @@ include( 'class-workout-manager.php' );
 $data = json_decode( file_get_contents( 'php://input' ) );
 
 if ( class_exists( 'JSON_Manager' ) ) :
-
-  if ( ! empty( $data->filename ) ) {
+  $workouts = new JSON_Manager();
+  if ( ! empty( $data->jsonURL ) ) {
+    echo $data->jsonURL;
   } else {
-    $workouts = new JSON_Manager();
+    
     echo json_encode( $workouts->glean_dir() );
   }
 endif;

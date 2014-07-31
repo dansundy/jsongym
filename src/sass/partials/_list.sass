@@ -1,7 +1,5 @@
 $max: 500px
 
-$border-color: lighten($dark, 40%)
-
 .branding
   margin: 0 0 1em
 
@@ -9,43 +7,16 @@ $border-color: lighten($dark, 40%)
     height: 150px
     width: 150px
 
-.list-message
-  font-weight: 200
-  text-transform: initial
-
 .workout-list
-  border-bottom: 1px solid $border-color
-
-  > li:hover
-    background: darken($background, 3%)
 
   li
-    border-top: 1px solid $border-color
-    font-weight: 200
-    position: relative
-    text-align: left
-    width: 100%
+    a.workout-list-name
+      width: 100%
 
-    .icon
-      height: $icon-size
-      width: $icon-size
-
-    a
-      display: inline-block
-      padding: 1em
-      text-decoration: none
-
-      &.workout-list-name
-        width: 100%
-
-      &.desc-toggle
-        position: absolute
-        right: 0
-        top: 0
-
-      // &.icn-wrap
-      //   padding: 0
-      //   vertical-align: middle
+    a.desc-toggle
+      position: absolute
+      right: 0
+      top: 0
 
     li
       display: none

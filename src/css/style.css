@@ -7,6 +7,9 @@
 /*
  * Extends
  */
+/*
+ * Layout
+ */
 .wrapper {
   display: table;
   min-height: 100%;
@@ -43,6 +46,34 @@
   width: 90%;
 }
 
+/*
+ * UI Classes
+ */
+.list {
+  border-bottom: 1px solid #c8bcac;
+}
+.list li {
+  border-top: 1px solid #c8bcac;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+.list li a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+}
+.list li .icon {
+  height: 20px;
+  width: 20px;
+}
+.list > li:hover {
+  background: #f8f9cf;
+}
+
+/*
+ * Reusable Components
+ */
 .toolbar {
   font-size: 1.3em;
   height: 40px;
@@ -195,33 +226,6 @@ strong {
   width: 150px;
 }
 
-.list-message {
-  font-weight: 200;
-  text-transform: initial;
-}
-
-.workout-list {
-  border-bottom: 1px solid #c8bcac;
-}
-.workout-list > li:hover {
-  background: #f8f9cf;
-}
-.workout-list li {
-  border-top: 1px solid #c8bcac;
-  font-weight: 200;
-  position: relative;
-  text-align: left;
-  width: 100%;
-}
-.workout-list li .icon {
-  height: 20px;
-  width: 20px;
-}
-.workout-list li a {
-  display: inline-block;
-  padding: 1em;
-  text-decoration: none;
-}
 .workout-list li a.workout-list-name {
   width: 100%;
 }

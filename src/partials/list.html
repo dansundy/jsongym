@@ -1,16 +1,5 @@
 <div class="center-container">
-  <h1 class="branding">
-    <svg class="icon">
-      <title>JSON Gym</title>
-      <use xlink:href="#wordmark" />
-    </svg>
-  </h1>
-  <p class="list-message">Get all the info and source code for this project on <a href="https://github.com/dansundy/jsongym">GitHub</a> or check out an example workout below.</p>
-  <form ng-submit="submit()" ng-controller="getFileCtrl">
-    <input type="text" ng-model="jsonfile" name="jsonfile" />
-    <input type="submit" id="submit" value="Submit" />
-  </form>
-  <ul class="workout-list" ng-controller="listCtrl">
+  <ul class="workout-list list" ng-controller="listCtrl">
     <li ng-repeat="workout in viewData.workouts">
       <a class="workout-list-name" href="#/workout?id={{workout.id}}">
         {{ workout.name }}
@@ -26,11 +15,11 @@
         <li>{{ workout.description }}</li>
       </ul>
     </li>
-    <li class="error" ng-show="err">
+    <li class="error" ng-show="viewData.errorMsg">
       <p>
         <svg class="icon">
           <use xlink:href="#warning" />
-        </svg> {{err}}
+        </svg> {{viewData.errorMsg}}
       </p>
     </li>
   </ul>

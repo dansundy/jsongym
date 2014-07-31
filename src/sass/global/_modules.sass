@@ -1,6 +1,10 @@
 $toolbars: top, bottom
 $toolbar-height: 40px
 
+/**
+ * Layout
+ */
+
 .wrapper
   display: table
   min-height: 100%
@@ -32,6 +36,36 @@ $toolbar-height: 40px
   max-width: 500px
   width: 90%
 
+/**
+ * UI Classes
+ */
+$border-color: lighten($dark, 40%)
+
+.list
+  border-bottom: 1px solid $border-color
+  
+  li
+    border-top: 1px solid $border-color
+    position: relative
+    text-align: left
+    width: 100%
+
+    a
+      display: block
+      padding: 1em
+      text-decoration: none
+
+    .icon
+      height: $icon-size
+      width: $icon-size
+
+  > li:hover
+    background: darken($background, 3%)
+
+
+/**
+ * Reusable Components
+ */
 .toolbar
   // @extend %sections
   font-size: 1.3em

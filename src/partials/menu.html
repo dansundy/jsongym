@@ -1,35 +1,25 @@
-<h1 class="branding">
-  <svg class="icon">
-    <title>JSON Gym</title>
-    <use xlink:href="#wordmark" />
-  </svg>
-</h1>
-<p class="list-message">Get all the info and source code for this project on <a href="https://github.com/dansundy/jsongym">GitHub</a> or check out an example workout below.</p>
-<form ng-submit="submit()" ng-controller="getFileCtrl">
-  <input type="text" ng-model="jsonfile" name="jsonfile" />
-  <input type="submit" id="submit" value="Submit" />
-</form>
-<ul class="workout-list" ng-controller="listCtrl">
-  <li ng-repeat="workout in workouts">
-    <a class="workout-list-name" href="#/workout?id={{workout.id}}">
-      {{ workout.name }}
-    </a>
-
-    <a class="desc-toggle icn-wrap" ng-if="workout.description">
-      <svg class="icon">
-        <use xlink:href="#info" />
-      </svg>
-    </a>
-    
-    <ul ng-if="workout.description">
-      <li>{{ workout.description }}</li>
+<div class="center-container">
+  <h1 class="branding">
+    <svg class="icon">
+      <title>JSON Gym</title>
+      <use xlink:href="#wordmark" />
+    </svg>
+  </h1>
+  <!-- <form ng-submit="submit()" ng-controller="getFileCtrl">
+    <input type="text" ng-model="jsonfile" name="jsonfile" />
+    <input type="submit" id="submit" value="Submit" />
+  </form> -->
+  <div>
+    <ul class="main-menu list" >
+      <li ng-if="viewData.workouts">
+        <a href="#/list">Workouts</a>
+      </li>
+      <li>
+        <a href="#/add">Add Workout</a>
+      </li>
+      <li>
+        <a href="#/about">About / Documentation</a>
+      </li>
     </ul>
-  </li>
-  <li class="error" ng-show="err">
-    <p>
-      <svg class="icon">
-        <use xlink:href="#warning" />
-      </svg> {{err}}
-    </p>
-  </li>
-</ul>
+  </div>
+</div>

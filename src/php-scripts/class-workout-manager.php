@@ -21,24 +21,36 @@ class JSON_Manager {
   public function glean_dir() {
     $dir = $this->workout_dir;
 
-    self::validate_dir( $dir );
+    $checkdir = self::validate_dir( $dir );
+
+    if ( gettype( $checkdir ) === 'string' ) :
+      return (object) array(
+        "status"   => 0,
+        "msg"      => $checkdir
+      );
+    endif;
 
     $handle = opendir( $dir );
     $files  = array();
 
     while ( false !== ( $file = readdir( $handle ) ) ) {
-      $file_meta = self::process_filename( $file );
-
-      if ( ! empty( $file_meta ) ) {
-        array_push( $files, $file_meta );
-      }
+      array_push( $files, $file );
     }
 
-    if ( count( $files ) > 0 ) {
-      $workouts = self::glean_file( $files );
-      return $workouts;
+    $workouts = self::glean_file( $files );
+    if ( count( $workouts ) > 0 ) {
+      
+      $c = count( $workouts );
+      return (object) array(
+        "success"  => 1,
+        "msg"      => "Successfully retrieved $c workout(s)",
+        "workouts" => $workouts
+      );
     } else {
-      die( 'There are no valid JSON files.' );
+      return (object) array(
+        "success"  => 0,
+        "msg"      => "Could not find a valid JSON file."
+      );
     }
   }
 
@@ -53,16 +65,27 @@ class JSON_Manager {
    */
   public function glean_file( $files ) {
     $workouts = array();
+
     foreach ( $files as $file ) {
 
-      $w = json_decode( file_get_contents( $file->location ) );
+      $file_meta = self::process_filename( $file );
 
-      $w->id        = $file->id;
-      $w->timestamp = filemtime( $file->location );
+      if ( $file_meta ) :
 
-      array_push( $workouts, $w );
-      return $workouts;
+        if ( file_exists( $file_meta->location ) ) {
+          $w = json_decode( file_get_contents( $file_meta->location ) );
+
+          $w->id        = $file_meta->id;
+          $w->timestamp = filemtime( $file_meta->location );
+
+          array_push( $workouts, $w );
+        }        
+
+      endif;
+      
     }
+
+    return $workouts;
   }
 
   /**
@@ -88,9 +111,9 @@ class JSON_Manager {
    */
   private function validate_dir( $dir ) {
     if ( !file_exists( $dir ) ) :
-      die( 'The directory doesn\'t exist.' );
-    elseif ( count( glob($dir . '/*' ) ) === 0 ) :
-      die( 'There are no files in the directory.' );
+      return "There is no workouts directory.";
+    elseif ( count( glob( $dir . '/*' ) ) === 0 ) :
+      return "There are no files in the workouts directory.";
     else :
       return true;
     endif;
@@ -105,16 +128,21 @@ class JSON_Manager {
    * @param  string $file The filename to be processed.
    * @return object|boolean Meta data object or false.
    */
-  private function process_filename( $file ) {
+  private function process_filename( $file, $abs = false ) {
     $extension = strtolower( substr( strrchr( $file, '.' ), 1 ) );
     if ( $extension == 'json' ) {
-
-      $name = explode( '.json', $file )[0];
+      
+      $file_array = explode( '/', $file );
+      $clean_file = end( $file_array );
+      
+      $name = explode( '.json', $clean_file )[0];
       $file_meta = (object) array(
         'name'     => $name,
         'id'       => self::string_to_id( $name ),
-        'location' => $this->workout_dir . '/' . $file
+        'location' => $abs ? $file : $this->workout_dir . '/' . $file
       );
+
+      var_dump($file_meta);
 
       return $file_meta;
 

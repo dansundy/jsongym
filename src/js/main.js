@@ -8,14 +8,19 @@ angular.module('Gym', [
   'Gym.controllers',
   'Gym.data'
 ])
-.config(['$routeProvider', function($routeProvider){
+.config(['$routeProvider', function($routeProvider, runScript){
   $routeProvider.when('/:view', {
     templateUrl: function(params) {
       return 'partials/' + params.view + '.html';
     },
-    controller: 'viewCtrl'
+    controller: 'viewCtrl',
+    resolve: {
+      getWorkouts: function(runScript) {
+        return runScript('php-scripts/get-workouts.php');
+      }
+    }
   });
-  $routeProvider.otherwise({redirectTo: '/list'})
+  $routeProvider.otherwise({redirectTo: '/menu'});
 }]);
 
 
