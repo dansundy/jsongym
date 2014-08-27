@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Gym.controllers')
-  .controller('workoutCtrl', function($scope, $rootScope, $location, $routeParams, $interval, $filter, storage, utils){
+  .controller('workoutCtrl', function($scope, $rootScope, $location, $routeParams, $interval, $filter, gymData, storage, utils){
     $scope.workoutID = $routeParams.id;
     $scope.workoutEvents = {};
     $scope.states = {};
@@ -144,7 +144,7 @@ angular.module('Gym.controllers')
     $scope.leaveWorkout = function(loc) {
       var c = confirm('Are you sure you want to leave this workout?');
       if (c === true) {
-        $location.path(loc);
+        $location.path(loc).search('id', null);
       }
     }
 
@@ -161,20 +161,21 @@ angular.module('Gym.controllers')
       }
     }
     
-    if (!$scope.viewData.workouts) {
+    if (!gymData.workouts) {
 
       var wks = storage.get('workouts');
 
       if (wks) {
-        $scope.viewData.workouts = $filter('orderBy')(wks,['order', '-timestamp', 'name']);
+        $scope.viewData.workouts = $filter('orderBy')(wks, ['order', '-timestamp', 'name']);
         $scope.Work.load();
         return;
       }
 
       console.log('That workout isn\'t there');
-      $location.url('/');
+      $location.url('/').search('id', null);
 
     } else {
+      $scope.viewData.workouts = $filter('orderBy')(gymData.workouts, ['order', '-timestamp', 'name']);
       $scope.Work.load();
     }
     

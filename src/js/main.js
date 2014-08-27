@@ -13,15 +13,15 @@ angular.module('Gym', [
     templateUrl: function(params) {
       return 'partials/' + params.view + '.html';
     },
-    controller: 'viewCtrl',
-    resolve: {
-      getWorkouts: function(runScript) {
-        return runScript('php-scripts/get-workouts.php');
-      }
-    }
+    controller: 'viewCtrl'
   });
   $routeProvider.otherwise({redirectTo: '/menu'});
-}]);
+}])
+.run(function($rootScope) {
+  $rootScope.configData = {
+    homeLink: '#/menu'
+  }
+});
 
 
 

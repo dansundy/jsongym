@@ -37,21 +37,10 @@ class JSON_Manager {
       array_push( $files, $file );
     }
 
-    $workouts = self::glean_file( $files );
-    if ( count( $workouts ) > 0 ) {
-      
-      $c = count( $workouts );
-      return (object) array(
-        "success"  => 1,
-        "msg"      => "Successfully retrieved $c workout(s)",
-        "workouts" => $workouts
-      );
-    } else {
-      return (object) array(
-        "success"  => 0,
-        "msg"      => "Could not find a valid JSON file."
-      );
-    }
+    $read_files = self::glean_file( $files );
+
+    return $read_files;
+    
   }
 
   /**
@@ -66,26 +55,46 @@ class JSON_Manager {
   public function glean_file( $files ) {
     $workouts = array();
 
-    foreach ( $files as $file ) {
+    $f = is_array( $files ) ? $files : array( $files );
+
+    foreach ( $f as $file ) {
 
       $file_meta = self::process_filename( $file );
 
       if ( $file_meta ) :
 
-        if ( file_exists( $file_meta->location ) ) {
-          $w = json_decode( file_get_contents( $file_meta->location ) );
+        $w = json_decode( file_get_contents( $file_meta->location ) );
 
-          $w->id        = $file_meta->id;
-          $w->timestamp = filemtime( $file_meta->location );
+        if ( empty( $w ) ) {
+          return (object) array(
+            "status"   => 0,
+            "msg"      => 'That file is not valid or is unreadable.'
+          );
+        }; 
 
-          array_push( $workouts, $w );
-        }        
+        $w->id        = $file_meta->id;
+        $w->timestamp = file_exists( $file_meta->location ) ? filemtime( $file_meta->location ) : time();
+
+        array_push( $workouts, $w );  
 
       endif;
       
     }
 
-    return $workouts;
+    $c = count( $workouts );
+
+    if ( $c > 0 ) {
+      return (object) array(
+        "success"  => 1,
+        "msg"      => "Successfully retrieved $c workout(s)",
+        "workouts" => $workouts
+      );
+    } else {
+      return (object) array(
+        "success"  => 0,
+        "msg"      => "Could not find a valid JSON file."
+      );
+    }
   }
 
   /**
@@ -128,8 +137,11 @@ class JSON_Manager {
    * @param  string $file The filename to be processed.
    * @return object|boolean Meta data object or false.
    */
-  private function process_filename( $file, $abs = false ) {
+  private function process_filename( $file ) {
     $extension = strtolower( substr( strrchr( $file, '.' ), 1 ) );
+
+    $abs = ( strpos( $file, 'http' ) === 0 ) ? true : false;
+
     if ( $extension == 'json' ) {
       
       $file_array = explode( '/', $file );
@@ -141,8 +153,6 @@ class JSON_Manager {
         'id'       => self::string_to_id( $name ),
         'location' => $abs ? $file : $this->workout_dir . '/' . $file
       );
-
-      var_dump($file_meta);
 
       return $file_meta;
 

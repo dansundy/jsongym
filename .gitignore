@@ -1,6 +1,7 @@
 _source/
 *.DS_Store
 .sass-cache/
+.htaccess
 
 node_modules/
 

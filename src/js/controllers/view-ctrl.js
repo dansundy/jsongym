@@ -3,16 +3,22 @@
 /* Controllers */
 
 angular.module('Gym.controllers')
-  .controller('viewCtrl', function($scope, getWorkouts){
+  .controller('viewCtrl', function($scope, $routeParams){
     
     $scope.viewData = {
-      temperature: 'normal'
+      view: $routeParams.view,
+      temperature: 'normal'      
     };
 
-    if (getWorkouts.success) {
-      $scope.viewData.workouts = getWorkouts.workouts;
-    } else {
-      $scope.viewData.errorMsg = getWorkouts.msg;
+    $scope.changeTab = function(tab) {
+      $scope.viewData.currentTab = tab;
     }
+
+    // if (getWorkouts.success) {
+    //   // $scope.viewData.workouts = getWorkouts.workouts;
+
+    // } else {
+    //   $scope.viewData.errorMsg = getWorkouts.msg;
+    // }
     
   }); 

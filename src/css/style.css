@@ -75,13 +75,16 @@
  * Reusable Components
  */
 .toolbar {
-  font-size: 1.3em;
   height: 40px;
   left: 0;
   line-height: 40px;
   padding: 0 1em;
   position: fixed;
+  text-transform: none;
   width: 100%;
+}
+.toolbar.toolbar-top {
+  top: 0;
 }
 .toolbar .right {
   margin-left: 10px;
@@ -100,6 +103,16 @@
 .toolbar .icon.icon-play-pause {
   height: 26px;
   width: 26px;
+}
+
+.tab-nav {
+  overflow: hidden;
+  width: 100%;
+}
+.tab-nav li {
+  cursor: pointer;
+  float: left;
+  margin-right: 1em;
 }
 
 /*
@@ -287,4 +300,15 @@ strong {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.info p, .info pre, .info h1, .info h2, .info h3, .info ul {
+  text-align: left;
+  text-transform: none;
+}
+.info pre {
+  background: white;
+  border-radius: 4px;
+  padding: 1em;
+  font-size: 0.9em;
 }

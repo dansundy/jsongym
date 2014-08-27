@@ -3,4 +3,4 @@
 /* Data (values and constants) */
 
 angular.module('Gym.data', [])
-  .constant('gymVars', {});
+  .value('gymData', {});

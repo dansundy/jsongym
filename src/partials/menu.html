@@ -10,7 +10,7 @@
     <input type="submit" id="submit" value="Submit" />
   </form> -->
   <div>
-    <ul class="main-menu list" >
+    <ul class="main-menu list" ng-controller="mainMenuCtrl">
       <li ng-if="viewData.workouts">
         <a href="#/list">Workouts</a>
       </li>
@@ -18,7 +18,7 @@
         <a href="#/add">Add Workout</a>
       </li>
       <li>
-        <a href="#/about">About / Documentation</a>
+        <a href="#/info">About / Documentation</a>
       </li>
     </ul>
   </div>

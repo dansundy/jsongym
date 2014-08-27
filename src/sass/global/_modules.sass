@@ -68,13 +68,17 @@ $border-color: lighten($dark, 40%)
  */
 .toolbar
   // @extend %sections
-  font-size: 1.3em
+  // font-size: 1.3em
   height: $toolbar-height
   left: 0
   line-height: $toolbar-height
   padding: 0 1em
   position: fixed
+  text-transform: none
   width: 100%
+
+  &.toolbar-top
+    top: 0
 
   .right
     margin-left: 10px
@@ -93,3 +97,12 @@ $border-color: lighten($dark, 40%)
     &.icon-play-pause
       height: $icon-size + 6px
       width: $icon-size + 6px
+
+.tab-nav
+  overflow: hidden
+  width: 100%
+
+  li
+    cursor: pointer
+    float: left
+    margin-right: 1em

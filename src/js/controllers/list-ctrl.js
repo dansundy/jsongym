@@ -3,16 +3,16 @@
 /* List View Controllers */
 
 angular.module('Gym.controllers')
-  .controller('listCtrl', function($scope, $rootScope, $filter, storage, gymVars){
+  .controller('listCtrl', function($scope, $filter, storage, gymData){
 
-    if ($scope.viewData.workouts) {
-      $scope.viewData.workouts = $filter('orderBy')($scope.viewData.workouts,['order', '-timestamp', 'name']);
+    if (gymData.workouts) {
+      $scope.viewData.workouts = $filter('orderBy')(gymData.workouts, ['order', '-timestamp', 'name']);
       storage.set('workouts', $scope.viewData.workouts);
     } else {
       var wks = storage.get('workouts');
 
       if (wks) {
-        $scope.viewData.workouts = $filter('orderBy')(wks,['order', '-timestamp', 'name']);
+        $scope.viewData.workouts = $filter('orderBy')(wks, ['order', '-timestamp', 'name']);
       }
     }
     
