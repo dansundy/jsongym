@@ -1,39 +1,39 @@
 <div class="center-container">
   <div class="toolbar toolbar-top">
-    <a class="left" ng-click="changeTab('about')">
-      About
+    <a href="{{$root.configData.homeLink}}" class="right">
+      <svg class="icon">
+        <use xlink:href="#home" />
+      </svg>
     </a>
-    <a class="left" ng-click="changeTab('documentation')">
-      Documentation
-    </a>
-    <a href="#/menu" class="right">Home</a>
   </div>
-  <p>{{changeTab}}</p>
-  <article ng-if="!viewData.currentTab || viewData.currentTab === 'about'">
-    <header>
-      <h2>About</h2>
-    </header>
-    <p>Write custom workouts in JSON (JavaScript Object Notation).</p>
-  </article>
-  <article ng-if="viewData.currentTab === 'documentation'">
-    <p><header>
-        <h2>Documentation</h2>
+  <article>
+    <section>
+      <header>
+        <h2>About</h2>
+      </header>
+      <p>Write custom workouts in JSON (JavaScript Object Notation).</p>
+    </section>
+    <section>
+      <header>
+        <h2>API</h2>
       </header>
       <p>Workouts are written in valid JSON format. A very simple workout would look something like this:</p>
       
         <code>
-      <pre>{
-        "name": "Example Workout",
-        "description" : "The workout's description",
-        "exercises": [
-      {
-        "name": "The First Exercise",
-        "reps": 10,
-        "rest": 30
-      }
-        ]
-      }</pre>
+<pre>
+{
+  "name": "Example Workout",
+  "description" : "The workout's description",
+  "exercises": [
+    {
+      "name": "The First Exercise",
+      "reps": 10,
+      "rest": 30
+    }
+  ]
+}</pre>
         </code>
+
       <p>The following is a list of options.</p>
       
       <h3>name (required)</h3>
@@ -125,6 +125,7 @@
       </ul>
       
       <p>The number of seconds of rest after the respective exercise. Rest time will not appear at the end of the last cycle.</p>
+    </section>
   </article>
 
 </div>

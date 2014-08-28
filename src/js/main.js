@@ -22,33 +22,3 @@ angular.module('Gym', [
     homeLink: '#/menu'
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .run(function($route){
-  // var appCache = window.applicationCache;
-  // if (appCache.status > 0) {
-  //   // Check if a new cache is available on page load.
-  //   appCache.addEventListener('updateready', function(e) {
-  //     if (appCache.status == window.applicationCache.UPDATEREADY) {
-  //       // Browser downloaded a new app cache.
-  //       if (confirm('A new version of this site is available. Load it?')) {
-  //         // $route.reload();
-  //         window.location.reload();
-  //       }
-  //     } 
-  //   }, false);
-  // }
-// });

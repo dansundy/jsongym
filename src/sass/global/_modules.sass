@@ -54,10 +54,17 @@ $border-color: lighten($dark, 40%)
       display: block
       padding: 1em
       text-decoration: none
+      vertical-align: bottom
 
     .icon
       height: $icon-size
       width: $icon-size
+
+    .menu-icon
+      margin-right: 0.5em
+      height: $icon-size - 3
+      width: $icon-size - 3
+
 
   > li:hover
     background: darken($background, 3%)
@@ -69,6 +76,7 @@ $border-color: lighten($dark, 40%)
 .toolbar
   // @extend %sections
   // font-size: 1.3em
+  background: $background
   height: $toolbar-height
   left: 0
   line-height: $toolbar-height
@@ -76,6 +84,12 @@ $border-color: lighten($dark, 40%)
   position: fixed
   text-transform: none
   width: 100%
+
+  .warm &
+    background: $warm
+
+  .hot &
+    background: $hot
 
   &.toolbar-top
     top: 0

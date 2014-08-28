@@ -5,20 +5,27 @@
       <use xlink:href="#wordmark" />
     </svg>
   </h1>
-  <!-- <form ng-submit="submit()" ng-controller="getFileCtrl">
-    <input type="text" ng-model="jsonfile" name="jsonfile" />
-    <input type="submit" id="submit" value="Submit" />
-  </form> -->
   <div>
     <ul class="main-menu list" ng-controller="mainMenuCtrl">
       <li ng-if="viewData.workouts">
-        <a href="#/list">Workouts</a>
+        <a href="#/list">
+          <svg class="icon menu-icon">
+            <use xlink:href="#barbell-angle" />
+          </svg> Workouts
+        </a>
       </li>
       <li>
-        <a href="#/add">Add Workout</a>
+        <a href="#/add">
+          <svg class="icon menu-icon">
+            <use xlink:href="#upload" />
+          </svg> Add Workout
+        </a>
       </li>
       <li>
-        <a href="#/info">About / Documentation</a>
+        <a href="#/info">
+          <svg class="icon menu-icon">
+            <use xlink:href="#book" />
+          </svg> About / Documentation</a>
       </li>
     </ul>
   </div>

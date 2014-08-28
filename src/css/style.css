@@ -62,10 +62,16 @@
   display: block;
   padding: 1em;
   text-decoration: none;
+  vertical-align: bottom;
 }
 .list li .icon {
   height: 20px;
   width: 20px;
+}
+.list li .menu-icon {
+  margin-right: 0.5em;
+  height: 17px;
+  width: 17px;
 }
 .list > li:hover {
   background: #f8f9cf;
@@ -75,6 +81,7 @@
  * Reusable Components
  */
 .toolbar {
+  background: #fafbdd;
   height: 40px;
   left: 0;
   line-height: 40px;
@@ -82,6 +89,12 @@
   position: fixed;
   text-transform: none;
   width: 100%;
+}
+.warm .toolbar {
+  background: #e6ac27;
+}
+.hot .toolbar {
+  background: #bf4d28;
 }
 .toolbar.toolbar-top {
   top: 0;
@@ -180,6 +193,14 @@ a {
 
 strong {
   font-weight: 500;
+}
+
+pre {
+  background: #fdfef4;
+  border: 1px solid #c8bcac;
+  border-radius: 4px;
+  padding: 1em;
+  font-size: 0.9em;
 }
 
 /*
@@ -306,9 +327,10 @@ strong {
   text-align: left;
   text-transform: none;
 }
-.info pre {
-  background: white;
-  border-radius: 4px;
-  padding: 1em;
+.info h3 {
+  font-weight: 500;
+}
+.info ul {
   font-size: 0.9em;
+  font-style: italic;
 }
