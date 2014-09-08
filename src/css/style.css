@@ -263,10 +263,14 @@ pre {
 .workout-list li a.workout-list-name {
   width: 100%;
 }
-.workout-list li a.desc-toggle {
+.workout-list li a.desc-toggle,
+.workout-list li a.trash-btn {
   position: absolute;
   right: 0;
   top: 0;
+}
+.workout-list li a.desc-toggle {
+  right: 25px;
 }
 .workout-list li li {
   display: none;

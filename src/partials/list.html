@@ -1,5 +1,10 @@
 <div class="center-container">
   <div class="toolbar toolbar-top">
+    <a href="#/add" class="right">
+      <svg class="icon">
+        <use xlink:href="#upload" />
+      </svg>
+    </a>
     <a href="{{$root.configData.homeLink}}" class="right">
       <svg class="icon">
         <use xlink:href="#home" />
@@ -18,16 +23,29 @@
           <use xlink:href="#info" />
         </svg>
       </a>
+
+      <a class="trash-btn" ng-click="listEvents.deleteWorkout(workout.id)">
+        <svg class="icon">
+          <use xlink:href="#trash" />
+        </svg>
+      </a>
       
       <ul ng-if="workout.description">
         <li>{{ workout.description }}</li>
       </ul>
     </li>
+    <li class="error" ng-show="viewData.workouts.length < 1">
+      <p>
+        <svg class="icon">
+          <use xlink:href="#warning" />
+        </svg> There aren't any workouts loaded.
+      </p>
+    </li>
     <li class="error" ng-show="viewData.errorMsg">
       <p>
         <svg class="icon">
           <use xlink:href="#warning" />
-        </svg> {{viewData.errorMsg}}
+        </svg> {{ viewData.errorMsg }}
       </p>
     </li>
   </ul>

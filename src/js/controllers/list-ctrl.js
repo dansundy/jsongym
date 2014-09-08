@@ -15,5 +15,20 @@ angular.module('Gym.controllers')
         $scope.viewData.workouts = $filter('orderBy')(wks, ['order', '-timestamp', 'name']);
       }
     }
+
+    $scope.listEvents = {
+      deleteWorkout: function(id) {
+        var c = confirm('Are you sure you want to delete this workout?');
+        if (c === true) {
+          for (var i=0; i<$scope.viewData.workouts.length; i++) {
+            if ($scope.viewData.workouts[i].id === id) {
+              $scope.viewData.workouts.splice(i,1);
+              break;
+            }
+          }
+          storage.set('workouts', $scope.viewData.workouts);
+        }
+      }
+    }
     
   });

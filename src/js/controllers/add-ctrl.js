@@ -4,15 +4,14 @@
 
 angular.module('Gym.controllers')
   .controller('getFileCtrl', function($scope, $http, $location, gymData){
-    $scope.submit = function() {
+    $scope.getData = function(data) {
       $http({
         method: 'POST',
         url: 'php-scripts/get-workouts.php',
-        data: {jsonURL: this.jsonfile},
+        data: data,
       })
       .success(function(data, status, headers, config){
-        // $scope.viewData.workouts = data.workouts;
-        // console.log($scope.viewData);
+
         if (!gymData.workouts) {
           gymData.workouts = [];
         }
@@ -26,6 +25,25 @@ angular.module('Gym.controllers')
       .error(function(data, status, headers, config){
         console.log(data);
         console.log(status);
+      });
+    }
+
+    $scope.submit = function() {
+      $scope.getData({jsonURL: this.jsonfile});
+    }
+
+    $scope.fromDropbox = function() {
+      Dropbox.choose({
+        linkType: 'direct',
+        multiselect: true,
+        extensions: ['.json'],
+        success: function(files) {
+          var links = [];
+          for (var i=0; i<files.length; i++) {
+            links.push(files[i].link);
+          }
+          $scope.getData({jsonURL: links});
+        }
       });
     }
 
