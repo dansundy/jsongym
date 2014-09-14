@@ -4,10 +4,9 @@ Write custom workouts in `JSON` (JavaScript Object Notation).
 
 ## Getting Started
 
-1. Download or clone the repository.
-2. The `jsongym` folder is the production ready application. Put it on the server where you want to run it.
-  * Advanced Users: If you want to make your own customizations you can do so in the `src` folder. The application is built with the command `gulp build`.
-3. Write a custom workout in valid `JSON` using the example and the API below. Place it in the workouts directory.
+JSON Gym leads you through customized workouts – telling you what exercise to do next and timing exercises and rest times. Go to [http://jsongym.com](jsongym.com) to check it out.
+
+## Example
 
 A very simple workout would look something like this:
 
@@ -19,10 +18,10 @@ A very simple workout would look something like this:
             {
             	"name": "The First Exercise",
             	"reps": 10,
-       			"rest": 30
-      		}
-    	]
-	}
+       			  "rest": 30
+      		  }
+    	 ]
+	 }
 
 ## API
 
