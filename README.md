@@ -4,7 +4,7 @@ Write custom workouts in `JSON` (JavaScript Object Notation).
 
 ## Getting Started
 
-JSON Gym leads you through customized workouts – telling you what exercise to do next and timing exercises and rest times. Go to [http://jsongym.com](jsongym.com) to check it out.
+JSON Gym leads you through customized workouts – telling you what exercise to do next and timing exercises and rest times. Go to (http://jsongym.com)[jsongym.com] to check it out.
 
 ## Example
 
