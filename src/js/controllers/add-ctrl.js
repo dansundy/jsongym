@@ -5,24 +5,34 @@
 angular.module('Gym.controllers')
   .controller('getFileCtrl', function($scope, $http, $location, gymData){
     $scope.getData = function(data) {
+      $scope.viewData.waiting = true;
       $http({
         method: 'POST',
         url: 'php-scripts/get-workouts.php',
         data: data,
       })
-      .success(function(data, status, headers, config){
+      .success(function(data, status, headers, config) {
 
         if (!gymData.workouts) {
           gymData.workouts = [];
         }
 
+        console.log(data);
+
+        if (data.status === 0) {
+          $scope.viewData.waiting = false;
+          $scope.viewData.errorMsg = data.msg;
+          return;
+        }
+
         for (var i = 0; i < data.workouts.length; i++) {
           gymData.workouts.push(data.workouts[i]);
         }
-
+        
         $location.path('/list');
       })
-      .error(function(data, status, headers, config){
+      .error(function(data, status, headers, config) {
+        $viewData.waiting = false;
         console.log(data);
         console.log(status);
       });

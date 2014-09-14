@@ -26,10 +26,10 @@ var path = {
     assets: './src/assets'
   },
   deploy: {
-    base: './jsongym',
-    styles: './jsongym/css',
-    scripts: './jsongym/js',
-    assets: './jsongym/assets'
+    base: './deploy',
+    styles: './deploy/css',
+    scripts: './deploy/js',
+    assets: './deploy/assets'
   }
 }
 

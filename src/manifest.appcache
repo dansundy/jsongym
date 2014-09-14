@@ -2,14 +2,22 @@ CACHE MANIFEST
 # --timestamp--
 
 index.html
-get-workouts.php
 css/style.--version--.css
 js/optimized.--version--.js
+partials/add.html
+partials/info.html
 partials/list.html
-partials/workout.html
+partials/main-toolbar.html
+partials/menu.html
 partials/svg-icons.html
+partials/workout.html
+php-scripts/class-workout-manager.php
+php-scripts/get-json-workout.php
 apple-touch-icon-152x152.png
 apple-touch-icon-precomposed.png
 apple-touch-icon.png
 favicon.png
 mstile-144x144.png
+
+NETWORK:
+*

@@ -13,7 +13,7 @@ body
   background: $light
   color: $foreground
   font-family: $font-base
-  font-weight: 300
+  font-weight: $font-weight
   text-transform: uppercase
   text-align: center
 
@@ -22,12 +22,19 @@ body
 
 @for $i from 1 through 6
   h#{$i}
-    font-weight: 300
+    font-weight: $font-weight
+    margin-top: 0
 
-ul, li
-  margin: 0
-  padding: 0
-  list-style-type: none
+p
+  text-transform: initial
+
+.list,
+.menu,
+.workout
+  ul, li
+    margin: 0
+    padding: 0
+    list-style-type: none
 
 a
   color: inherit
@@ -80,6 +87,7 @@ $floats: left, right
   display: inline-block
   height: 32px
   vertical-align: middle
+  vertical-align: bottom
   width: 32px
 
   use

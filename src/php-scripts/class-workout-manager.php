@@ -68,12 +68,13 @@ class JSON_Manager {
         if ( empty( $w ) ) {
           return (object) array(
             "status"   => 0,
-            "msg"      => 'That file is not valid or is unreadable.'
+            "msg"      => 'Oops. File is not valid or unreadable.'
           );
         }; 
 
         $w->id        = $file_meta->id;
-        $w->timestamp = file_exists( $file_meta->location ) ? filemtime( $file_meta->location ) : time();
+        // $w->timestamp = file_exists( $file_meta->location ) ? filemtime( $file_meta->location ) : time();
+        $w->timestamp = time();
 
         array_push( $workouts, $w );  
 
@@ -140,7 +141,7 @@ class JSON_Manager {
   private function process_filename( $file ) {
     $extension = strtolower( substr( strrchr( $file, '.' ), 1 ) );
 
-    $abs = ( strpos( $file, 'http' ) === 0 ) ? true : false;
+    // $abs = ( strpos( $file, 'http' ) === 0 ) ? true : false;
 
     if ( $extension == 'json' ) {
       
@@ -151,7 +152,7 @@ class JSON_Manager {
       $file_meta = (object) array(
         'name'     => $name,
         'id'       => self::string_to_id( $name ),
-        'location' => $abs ? $file : $this->workout_dir . '/' . $file
+        'location' => $file
       );
 
       return $file_meta;

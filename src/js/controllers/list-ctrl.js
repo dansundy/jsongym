@@ -16,6 +16,8 @@ angular.module('Gym.controllers')
       }
     }
 
+    // console.log($scope.viewData.workouts);
+
     $scope.listEvents = {
       deleteWorkout: function(id) {
         var c = confirm('Are you sure you want to delete this workout?');

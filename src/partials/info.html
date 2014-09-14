@@ -9,9 +9,21 @@
   <article>
     <section>
       <header>
-        <h2>About</h2>
+        <h2>Getting Started</h2>
       </header>
-      <p>Write custom workouts in JSON (JavaScript Object Notation).</p>
+      <p>JSON Gym leads you through customized workouts – telling you what exercise to do next and timing exercises and rest times. To get started:
+        <ol>
+          <li>Create a file with a .json extension. <em>(eg. my-first-workout.json)</em>.</li>
+          <li>Write a workout in valid JSON (JavaScript Object Notation) according to the API below.
+            <ul>
+              <li>Note: If you don't have any experience with writing <abbr title="JavaScript Object Notation">JSON</abbr> you can have a look at <a href="http://www.json.com">json.com</a> or just adjust one of the examples below.</li>
+            </ul>
+          </li>
+          <li>Add your workout on the <a href="#/add">Add Workout</a> page. You can add in two ways. The first, submit a readable link to the .json file. If you have a server you could point it there or you could use a local file url <em>(ie. file:///)</em>. The second option is to add your file via Dropbox.</li>
+        </ol>
+      </p>
+
+      <p>One quick note: there is no need to log in. Your workouts are stored right on your device. This means that they will be there as long as your browser cache isn't cleared. If you do clear your cache, simply re-add your workouts.</p>
     </section>
     <section>
       <header>
@@ -24,10 +36,16 @@
 {
   "name": "Example Workout",
   "description" : "The workout's description",
+  "cycles": 2,
   "exercises": [
     {
-      "name": "The First Exercise",
+      "name": "Pushups",
       "reps": 10,
+      "rest": 30
+    },
+    {
+      "name": "Plank",
+      "time": 15,
       "rest": 30
     }
   ]

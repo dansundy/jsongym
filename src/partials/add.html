@@ -8,13 +8,31 @@
     </a>
   </div>
 
-  <h2>Add Workout</h2>
-  <form ng-submit="submit()" ng-controller="getFileCtrl">
-    <input type="text" ng-model="jsonfile" name="jsonfile" />
-    <input type="submit" id="submit" value="Submit" />
+  <h2>Add Workouts</h2>
+  <!-- <p>Enter the link of any readable .json file.</p> -->
+  <form class="add-form" ng-submit="submit()" ng-controller="getFileCtrl">
+    <input type="text" ng-model="jsonfile" name="jsonfile" class="json-file-input" placeholder="Enter the link to a .json file here."/>
+    <input type="submit" id="submit" value="Submit" ng-show="jsonfile.slice(-5) === '.json'" />
   </form>
+  
   <p>or</p>
-  <a ng-click="fromDropbox()" ng-controller="getFileCtrl">
-    Choose from Dropbox
+
+  <a class="dropbox-btn" ng-click="fromDropbox()" ng-controller="getFileCtrl">
+    <svg class="icon">
+      <use xlink:href="#dropbox" />
+    </svg>
+    Choose Files From Dropbox
   </a>
+
+  <p class="error" ng-show="viewData.errorMsg">
+    <svg class="icon">
+      <use xlink:href="#warning" />
+    </svg> {{ viewData.errorMsg }}
+  </p>
+</div>
+
+<div class="wait-screen" ng-show="viewData.waiting">
+  <svg class="icon wait-icon">
+    <use xlink:href="#barbell-angle" />
+  </svg>
 </div>

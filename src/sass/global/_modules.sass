@@ -83,7 +83,13 @@ $border-color: lighten($dark, 40%)
   padding: 0 1em
   position: fixed
   text-transform: none
+  transition-property: background-color, color
   width: 100%
+
+  .warm &,
+  .hot &
+    transition-duration: 1s, 900ms
+    transition-delay: 0, 100ms
 
   .warm &
     background: $warm
@@ -106,6 +112,7 @@ $border-color: lighten($dark, 40%)
 
   .icon
     height: $icon-size + 4px
+    vertical-align: middle
     width: $icon-size + 4px
 
     &.icon-play-pause
@@ -120,3 +127,34 @@ $border-color: lighten($dark, 40%)
     cursor: pointer
     float: left
     margin-right: 1em
+
+@keyframes spin 
+  0%
+    transform: rotate(45deg)
+  30% 
+    transform: rotate(45deg)
+  70% 
+    transform: rotate(225deg)
+  100%
+    transform: rotate(225deg)
+
+
+.wait-screen
+  background: $background
+  height: 100%
+  left: 0
+  position: absolute
+  top: 0
+  width: 100%
+  
+  $wait-icon-size: 40px
+
+  .icon.wait-icon
+    animation: spin 1.5s infinite
+    height: $wait-icon-size
+    left: 50%
+    margin-top: -$wait-icon-size/2
+    margin-left: -$wait-icon-size/2
+    position: absolute
+    top: 50%
+    width: $wait-icon-size
