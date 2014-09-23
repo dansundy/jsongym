@@ -16,20 +16,25 @@ $max: 500px
     a.desc-toggle,
     a.trash-btn
       position: absolute
-      right: 0
+      right: 15px
       top: 0
 
     a.desc-toggle
-      right: $icon-size + 5px
+      right: $icon-size + 22px
 
     li
-      display: none
-      padding: 1em
+      border-top: none
+      max-height: 0
+      overflow: hidden
       text-align: left
       text-transform: initial
+      transition: max-height $trans-speed ease
+
+      p
+        margin: 1em
 
     &.is-showing-description li
-      display: block
+      max-height: 200px
 
     &.error
       text-align: center

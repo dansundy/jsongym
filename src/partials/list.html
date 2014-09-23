@@ -13,25 +13,25 @@
   </div>
   <h2>Workouts</h2>
   <ul class="workout-list list" ng-controller="listCtrl">
-    <li ng-repeat="workout in viewData.workouts">
+    <li ng-repeat="workout in viewData.workouts" workout-list-repeat>
       <a class="workout-list-name" href="#/workout?id={{workout.id}}">
         {{ workout.name }}
       </a>
   
-      <a class="desc-toggle icn-wrap" ng-if="workout.description">
+      <a class="desc-toggle action-icn" ng-if="workout.description">
         <svg class="icon">
           <use xlink:href="#info" />
         </svg>
       </a>
 
-      <a class="trash-btn" ng-click="listEvents.deleteWorkout(workout.id)">
+      <a class="trash-btn action-icn" ng-click="listEvents.deleteWorkout(workout.id)">
         <svg class="icon">
           <use xlink:href="#trash" />
         </svg>
       </a>
       
-      <ul ng-if="workout.description">
-        <li>{{ workout.description }}</li>
+      <ul class="workout-description" ng-if="workout.description">
+        <li><p>{{ workout.description }}</p></li>
       </ul>
     </li>
     <li class="error" ng-show="viewData.workouts.length < 1">

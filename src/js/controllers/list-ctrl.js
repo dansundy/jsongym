@@ -32,5 +32,9 @@ angular.module('Gym.controllers')
         }
       }
     }
+
+    $scope.getHeight = function(e) {
+      console.log(e);
+    }
     
   });

@@ -8,6 +8,9 @@
  * Typeography
  */
 /*
+ * Transitions
+ */
+/*
  * Extends
  */
 /*
@@ -66,6 +69,9 @@
   padding: 1em;
   text-decoration: none;
   vertical-align: bottom;
+}
+.list li .action-icn {
+  padding: 1em 0;
 }
 .list li .icon {
   height: 20px;
@@ -356,20 +362,26 @@ pre {
 .workout-list li a.desc-toggle,
 .workout-list li a.trash-btn {
   position: absolute;
-  right: 0;
+  right: 15px;
   top: 0;
 }
 .workout-list li a.desc-toggle {
-  right: 25px;
+  right: 42px;
 }
 .workout-list li li {
-  display: none;
-  padding: 1em;
+  border-top: none;
+  max-height: 0;
+  overflow: hidden;
   text-align: left;
   text-transform: initial;
+  -webkit-transition: max-height 1000ms ease;
+  transition: max-height 1000ms ease;
+}
+.workout-list li li p {
+  margin: 1em;
 }
 .workout-list li.is-showing-description li {
-  display: block;
+  max-height: 200px;
 }
 .workout-list li.error {
   text-align: center;
