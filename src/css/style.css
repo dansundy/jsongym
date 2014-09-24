@@ -449,6 +449,7 @@ pre {
 }
 .add .icon {
   height: 20px;
+  margin-right: 0.5em;
   width: 20px;
 }
 .add .add-form {
