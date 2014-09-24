@@ -14,6 +14,9 @@
  * Extends
  */
 /*
+ * Functions
+ */
+/*
  * Layout
  */
 .wrapper {
@@ -302,6 +305,28 @@ pre {
  * Classes
  */
 .btn {
+  background: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fafbdd), to(rgba(101, 86, 67, 0.075)));
+  background: -webkit-linear-gradient(top, #fafbdd 0%, rgba(101, 86, 67, 0.075) 100%);
+  background: linear-gradient(to bottom, #fafbdd 0%, rgba(101, 86, 67, 0.075) 100%);
+  border: 1px solid #c8bcac;
+  border-radius: 4px;
+  color: #655643;
+  font-weight: 200;
+  padding: 0.8em;
+}
+.btn:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(101, 86, 67, 0.03)), to(rgba(101, 86, 67, 0.1)));
+  background: -webkit-linear-gradient(top, rgba(101, 86, 67, 0.03) 0%, rgba(101, 86, 67, 0.1) 100%);
+  background: linear-gradient(to bottom, rgba(101, 86, 67, 0.03) 0%, rgba(101, 86, 67, 0.1) 100%);
+}
+.btn.is-inactive {
+  background: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.round-btn {
   border: 1px solid #655643;
   background: #d7eae2;
   border-radius: 50%;
@@ -313,14 +338,14 @@ pre {
   text-transform: uppercase;
   width: 100px;
 }
-.hot .btn {
+.hot .round-btn {
   background-color: #fafbdd;
   color: #655643;
 }
-.btn.action {
+.round-btn.action {
   font-size: 1.5em;
 }
-.btn.is-inactive {
+.round-btn.is-inactive {
   opacity: 0.5;
 }
 
@@ -501,13 +526,9 @@ pre {
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
   font-weight: 300;
 }
-.add .add-form,
-.add .dropbox-btn {
+.add .add-form {
   border: 1px solid #c8bcac;
   border-width: 1px 0;
   display: block;
   width: 100%;
-}
-.add .dropbox-btn {
-  padding: 0.8em;
 }

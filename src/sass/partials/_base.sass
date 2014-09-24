@@ -56,6 +56,25 @@ pre
 $button-size: 100px
 
 .btn
+  background: none
+  background: linear-gradient(to bottom, $background 0%, foreground-opacity(0.075) 100%)
+  border: 1px solid $border-color
+  border-radius: 4px
+  color: $foreground
+  font-weight: 200
+  // display: inline-block
+  padding: 0.8em
+
+  &:hover
+    background: linear-gradient(to bottom, foreground-opacity(0.03) 0%, foreground-opacity(0.1) 100%)
+
+  &.is-inactive
+    background: none
+    cursor: default
+    opacity: 0.5
+
+
+.round-btn
   border: 1px solid $foreground
   background: lighten($accent, 26%)
   border-radius: 50%
