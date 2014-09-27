@@ -313,6 +313,7 @@ pre {
   border-radius: 4px;
   color: #655643;
   font-weight: 200;
+  display: inline-block;
   padding: 0.8em;
 }
 .btn:hover {
